@@ -1,15 +1,20 @@
 $(function(){
 
 
+    let counter = 0;
     $('.mobile-nav-toggle').click(function(){
-        
-        if(document.getElementById('checkbox').checked==false){
-            
-                $('.filters').css('left','0%');
-                console.log('ok');
-                $('.wrapper').css({'position':'fixed','bottom':'0px'});
+        counter++;
+        $('.filters').css('left','0%').toggle();
+        $('.wrapper').css({'position':'fixed','top':'0px'});
+        console.log(counter);
+        if(counter==2)
+        {
+            $('.wrapper').css({'position':'relative'});
+            counter=0;
         }
+        
     })
+
 
     for(var i=0;i<50;i++){
         $('.data tbody').append('<tr><td class="identity1">2304  <span title="more" id='+i+'>+</span><div id=details'+i+'><p></p></div></td><td class="identity2" id=detailsCell'+i+'>Alain</td><td >11/02/2021 16:34</td><td>OrangeMony</td><td>5000</td><td>56</td><td>200</td></tr>');
@@ -37,4 +42,8 @@ $(function(){
     })
 
 })
+
+if($('.filters').css('left','-200%')){
+    console.log('true');
+}
 
