@@ -1,0 +1,197 @@
+*
+{
+    padding: 0%;
+    margin: 0%;
+}
+
+body{
+   font-family: Arial, Helvetica, sans-serif;
+   overflow-x: hidden;
+   background-color:rgb(207, 226, 226);
+}
+
+
+.wrapper
+{
+    position: relative;
+    bottom: 0%;
+}
+
+#checked:checked ~ div
+{
+    left: 0%;
+}
+
+.filters
+{
+    position: absolute;
+    margin-top:0px;
+    background-color:rgba(199, 218, 218,0.4) ;
+    display: none;
+    width: 95%;
+    left: -200%;
+    z-index: 3;
+    overflow: auto;
+    
+}
+
+#allFilters
+{
+    width: 60%;
+    height: 100%;
+    padding: 15px;
+    background-color: rgb(145, 168, 168);
+    
+}
+
+.filters label
+{
+   display: block;
+   font-weight: bold; 
+}
+
+.filters #filter_colonne label
+{
+    display: inline;
+
+}
+
+.filters #filter_colonne input
+{
+    left: 0px;
+}
+
+.filters h3
+{
+    font-size: 20px;
+    color: black;
+}
+
+.filters input[type='text'], .filters input[type='number'],.filters #filter_site select ,.filters #filter_status select ,.filters #filter_payment select, .filters input[type='date']
+{
+    width: 60%;
+    margin: 5px;
+    text-align: center;
+}
+
+.dashBoardHead
+{
+    display: inline-block;
+    position: sticky;
+    margin-bottom: 5px;
+    top: 0px;
+    z-index: 4;
+    background-color: rgb(92, 116, 116);
+    width: 100%;
+    padding: 7px;
+    margin: auto;
+}
+
+.dashBoardHead h1,i
+{
+    display: inline-block;
+    color: white;
+}
+
+i
+{
+    margin-right: 15%;
+    font-size: 28px; 
+}
+
+h1,h2,h3
+{
+    text-align: center;
+}
+
+.data
+{
+    overflow: auto;
+    width: 95%;
+    margin: auto;
+    background-color: rgb(178, 192, 192);
+}
+
+.data
+{
+    height: 80%;
+}
+
+ table, .filters {
+    font-size: 13px;
+    border-collapse: collapse;
+    width: 100%;       
+}
+
+.data table thead, .data table tfoot,.tsum
+{
+    position: sticky;
+    color: white;
+    background-color:rgb(92, 116, 116);
+    z-index: 1;
+}
+
+.tsum
+{
+ padding: 5px;
+}
+
+.tsum tr
+{
+    color: white;
+}
+
+.data table thead
+{
+    top: 0;
+}
+
+.data table tfoot
+{
+  
+   inset-inline-start: 0;
+   inset-block-end: 0;
+   
+}
+
+th,td {
+    border: 1px solid rgb(99, 97, 97);
+    padding: 3px;
+    text-align: center;
+    width: 50px;
+}
+
+td span
+{
+    
+    color: rgb(225, 245, 46);
+    cursor: pointer;
+}
+
+.data .identity1, .data .identity2, .identity01,.identity02
+{
+    position: sticky;
+    background-color:rgb(92, 116, 116);
+    color: white;
+
+}
+
+.identity01,.identity02
+{
+    background-color:rgb(15, 66, 66);
+}
+
+.identity1, .identity01
+{
+    left: 0px;
+    position: sticky;
+}
+
+.data .identity2, .identity02
+{
+    display: none;
+}
+
+
+
+
