@@ -6,9 +6,8 @@ $(function(){
     $('.mobile-nav-toggle').click(function(){
         counter++;
 
-        $('.filters').css('left','0%').toggle();
+        $('.filters').css('left','0%').toggle(200);
         $('.wrapper').css({'position':'fixed','top':'0px'});
-        console.log(counter);
 
         if(counter==2)
         {
