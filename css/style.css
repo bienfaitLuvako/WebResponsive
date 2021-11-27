@@ -87,7 +87,7 @@ body{
 
 .mobile-nav-toggle
 {
-    position: fixed;
+    position: absolute;
     font-size: 28px; 
 }
 
