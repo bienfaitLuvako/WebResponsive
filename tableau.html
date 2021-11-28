@@ -122,7 +122,7 @@
             </div>
             <div>
                 <button type="submit">Apply</button>
-                <button id="btncancel">Cancel</button>
+                <button class="cancelbtn" id="btncancel">Cancel</button>
             </div>
         </div>
 
@@ -142,8 +142,12 @@
             </div>
             
             <button type="submit">Apply</button>
+            <button class="cancelbtn" id="btncancel">Cancel</button>
+            
+            <div class="tags-box" id ="">
+                <button onclick="window.location.href='index.html'">Logout</button>
+           </div>
         </div>
-        
     </div>
     <div class="wrapper">
         <div class="data">
@@ -164,7 +168,7 @@
         </div>
     
         <div class="tsum">
-            <h3>Sum and average</h3>
+            <h3>General information</h3>
             <table id="table2">
                 <thead>
                     <th>Currency</th>
@@ -188,11 +192,11 @@
                 </tbody>
             </table><br>
 
-            <label for="format">Export</label>
+            <label for="format">Export to</label>
             <select name="format" id="print">
-                <option value="">CSV</option>
-                <option value="">PDF</option>
-                <option value="">Excel</option>
+                <option value="">csv</option>
+                <option value="">pdf</option>
+                <option value="">xlsx</option>
             </select>
             <button type="submit">OK</button>
         </div>

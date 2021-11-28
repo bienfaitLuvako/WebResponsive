@@ -1,3 +1,5 @@
+/*General properties*/
+
 *
 {
     padding: 0%;
@@ -18,9 +20,9 @@ h1,h2,h3
 }
 
 button,select, .tags .tags-box select,
-.tags .tags-box input[type="text"],
-.tags .tags-box input[type="number"],
-.tags .tags-box input[type="date"] 
+ input[type="text"],input::placeholder,
+input[type="number"],
+input[type="date"] 
 {
     background-color: rgb(119, 145, 145);
     color: white;
@@ -28,14 +30,62 @@ button,select, .tags .tags-box select,
     border: none;
     cursor: pointer;
     width: 100%;
-    margin: 5px;
+    margin: 5px 0;
+    display: inline-block;
+    box-sizing: border-box;
   }
+
+button
+{
+    width: auto;
+    border-radius: 7px;
+}
 
 .wrapper
 {
     position: relative;
     bottom: 0%;
 }
+
+.container {
+    padding: 16px;
+  }
+
+  .animate {
+
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s;
+    
+  }
+
+  @-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0)} 
+    to {-webkit-transform: scale(1)}
+  }
+    
+  @keyframes animatezoom {
+    from {transform: scale(0)} 
+    to {transform: scale(1)}
+  }
+
+  /*short message*/
+  .shortMessage
+  {
+      
+      background: rgb(180, 206, 206);
+      border-radius: 15px;
+      width: 70%;
+      margin: 20px auto 20px;
+      justify-content: center;
+      padding: 20px;
+      
+  }
+
+  .shortMessage h2
+  {
+      padding: 7px;
+  }
+  /*Dashboard header*/
 
 .dashBoardHead
 {  
@@ -45,6 +95,7 @@ button,select, .tags .tags-box select,
     background-color: rgb(92, 116, 116);
     width: 100%;
     padding: 2% 2% 2%;
+    text-align: center;
 
 }
 
@@ -127,6 +178,7 @@ button,select, .tags .tags-box select,
 .tsum
 {
  padding: 20px;
+ text-align: center;
 }
 
 .tsum tr
@@ -178,6 +230,26 @@ td span
     display: none;
 }
 
+/* forms */
+
+  .modal-content {
+    display:none;
+    text-align: center;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 100%; /* Could be more or less, depending on screen size */
+    width: 30%;
+    min-width: 270px;
+    border: none;
+    background-color: rgba(0,0,0,0.1);
+    border-radius: 10px;
+  }
+
+  .cancelbtn {
+    width: auto;
+    background-color: #f44336;
+    margin: 0px 0;
+  }
 
 
 

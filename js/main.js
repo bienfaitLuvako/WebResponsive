@@ -53,6 +53,12 @@ $(function(){
         }
     })
 
+    //Managing login forms
+    $('#agent').click(function(){
+        console.log('ok');
+       $('.modal-content').show(); 
+    })
+
 })
 
 
