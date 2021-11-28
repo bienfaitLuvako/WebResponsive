@@ -6,7 +6,7 @@ $(function(){
     $('.mobile-nav-toggle').click(function(){
         counter++;
 
-        $('.filters').css('left','0%').toggle(200);
+        $('#menu-content').css('left','0%').toggle(200);
         $('.wrapper').css({'position':'fixed','top':'0px'});
 
         if(counter==2)
@@ -14,14 +14,13 @@ $(function(){
             $('.wrapper').css({'position':'relative'});
             counter=0;
         }
-        
     });
 
     //submit filters
-    $('.filters button[type="submit"]').click(function(){
-        $('.filters').hide();
+    $('#menu-content button[type="submit"]').click(function(){
+        $('#menu-content').css('left','-200%').hide(200);
         $('.wrapper').css({'position':'relative'});
-        counter=2;
+        counter=0;
     });
 
     //populating the table 
