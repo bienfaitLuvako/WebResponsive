@@ -7,7 +7,7 @@ $(function(){
         counter++;
 
         $('#menu-content').css('left','0%').toggle(200);
-        $('.wrapper').css({'position':'fixed','top':'0px'});
+        $('.wrapper').css({'position':'fixed','top':'0px','width':'100%'});
 
         if(counter==2)
         {
@@ -55,7 +55,6 @@ $(function(){
 
     //Managing login forms
     $('#agent').click(function(){
-        console.log('ok');
        $('.modal-content').show(); 
     })
 

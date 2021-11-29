@@ -85,6 +85,36 @@ button
   {
       padding: 7px;
   }
+
+  @media(min-width:700px)
+  {
+     
+      .indexBody
+      {
+        display: flex;
+      }
+
+      .shortMessage
+      {
+          width: 60%;
+          margin: 10px;
+      }
+
+      #id01 {
+        display: block;
+        position: relative;
+        width: 30%;
+        margin: 10px;
+        padding: auto;
+
+      }
+
+      #id01 .container
+      {
+          vertical-align: middle;
+      }
+  }
+
   /*Dashboard header*/
 
 .dashBoardHead
@@ -237,8 +267,7 @@ td span
     text-align: center;
     margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
     border: 1px solid #888;
-    width: 100%; /* Could be more or less, depending on screen size */
-    width: 30%;
+    width: 50%;
     min-width: 270px;
     border: none;
     background-color: rgba(0,0,0,0.1);
