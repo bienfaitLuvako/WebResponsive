@@ -6,21 +6,21 @@ $(function(){
     $('.mobile-nav-toggle').click(() => {
             counter++;
 
-            $('.filters').css('left', '0%').toggle(200);
-            $('.wrapper').css({ 'position': 'fixed', 'top': '0px' });
+        $('#menu-content').css('left','0%').toggle(200);
+        $('.wrapper').css({'position':'fixed','top':'0px','width':'100%'});
 
-            if (counter == 2) {
-                $('.wrapper').css({ 'position': 'relative' });
-                counter = 0;
-            }
-
-        });
+        if(counter==2)
+        {
+            $('.wrapper').css({'position':'relative'});
+            counter=0;
+        }
+    });
 
     //submit filters
-    $('.filters button[type="submit"]').click(function(){
-        $('.filters').hide();
+    $('#menu-content button[type="submit"]').click(function(){
+        $('#menu-content').css('left','-200%').hide(200);
         $('.wrapper').css({'position':'relative'});
-        counter=2;
+        counter=0;
     });
 
     //populating the table 
@@ -51,6 +51,11 @@ $(function(){
         {
             $('#details'+this.id).hide();
         }
+    })
+
+    //Managing login forms
+    $('#agent').click(function(){
+       $('.modal-content').show(); 
     })
 
 })
