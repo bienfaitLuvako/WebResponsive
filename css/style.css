@@ -219,10 +219,25 @@ button
     overflow: auto;
     width: 100%;
     margin-left:0px;
-    height: 65.7%;
+    height: 82%;
     background-color: rgb(178, 192, 192);
 }
 
+#page{
+    display: flex;
+    width: 200;
+    position: absolute;
+    bottom: 26%;
+    margin-left: 10%;
+}
+
+    #export{
+    position: absolute;
+    margin-left:60% ;
+    bottom: 26%;
+    width: 120px;
+    
+}
  table, #menu-content {
     font-size: 13px;
     border-collapse: collapse;
@@ -240,13 +255,14 @@ button
 
 .tsum
 {
+
  padding-top: 5;
  padding-bottom: 0%;
  text-align: center;
  bottom: 0px;
- position: absolute;
- width: 100%;
- margin: auto;
+ position:relative ;
+ width: auto;
+ display: block;
 }
 
 body .general .tsum{
@@ -254,15 +270,12 @@ body .general .tsum{
     padding: px;
     height:px;
 }
-.tsum div{
-    display: flex;
-}
 
 .tsum table {
     width: 400px;
     padding: 23px;
     height: 30px;
-    margin: 10px;
+    margin: auto;
 }
 
 .tsum table td{
@@ -271,9 +284,9 @@ body .general .tsum{
 
 .tsum #export{
 
-    width: 400px;
+    width: 200px;
     padding: 23px;
-    display: block;
+    background-color: chartreuse;
 }
 
 
@@ -405,6 +418,8 @@ td span
       }
   }
 
+  
+
 
 
   .cancelbtn {
@@ -417,6 +432,8 @@ td span
 @media (min-width:1000px){
 
     *{
+        padding: 0;
+        margin: 0;
         overflow: hidden;
     }
     .mobile-nav-toggle
@@ -431,19 +448,41 @@ td span
     display: block;
     width: 300px;
     left: 0%;
-    height: 53%;
+    height:61%;
     overflow: auto;
     }
 
 
     .data
     {
-    width: 100%;
+    width: auto;
+    padding: 15px;
     margin-left: 290px;
     height: 80%;
     background-color: rgb(178, 192, 192);
     margin-right: 0px;
    }
+
+   .tabledata{
+       width: 100%;
+       overflow: auto;
+   }
+
+   #page{
+    display: flex;
+    width: 200;
+    position: absolute;
+    bottom: 8;
+    margin-left: 10%;
+}
+
+    #export{
+    position: absolute;
+    margin-left:60% ;
+    width: 120px;
+    bottom: 8;
+    
+}
 
    body table{
     overflow: auto;
@@ -496,8 +535,9 @@ td span
 }
 
 .tsum{
-    width:300px;
-    height: 300px;
+    width:265px;
+    height: 180px;
+    
 }
 .tsum div{
     display: block;
@@ -511,8 +551,14 @@ td span
 }
 .tsum #export{
     width: auto;
-    margin-top: -23px;
+    margin-top: -25px;
+    padding-top: 0;
 }
+
+.tsum table tbody tr td{
+    padding: 5px 1px;
+}
+
 }
 
 

@@ -149,31 +149,39 @@
     </div>
     <div class="wrapper">
         <div class="data">
-            <table id="table1">
-                <thead>
-                    <th class="identity01">Customer code</th>
-                    <th class="identity02">Customer name</th>  
-                    <th>Date/Time</th>
-                    <th>Payment Mode</th>
-                    <th>Amount payed</th>
-                    <th>Currency</th>
-                    <th>Exchange rate</th>
-                </thead>
-                <tbody>
-            
-                </tbody>
-            </table>
-            <div>
-                <a href="javascript:void(0)" id="previous">&laquo;</a>
-                <ul class="pagination">
-
-                </ul>
-                <a href="javascript:void(0)" id="next">&raquo;</a>
-              </div>
+                <div class="tabledata">
+                    <table id="table1">
+                        <thead>
+                            <th class="identity01">Customer code</th>
+                            <th class="identity02">Customer name</th>  
+                            <th>Date/Time</th>
+                            <th>Payment Mode</th>
+                            <th>Amount payed</th>
+                            <th>Currency</th>
+                            <th>Exchange rate</th>
+                        </thead>
+                        <tbody>
+                    
+                        </tbody>
+                    </table>
+                </div>
+                <div id="page">
+                    <a href="javascript:void(0)" id="previous">&laquo;</a>
+                    <ul class="pagination">
+    
+                    </ul>
+                    <a href="javascript:void(0)" id="next">&raquo;</a>
+                </div>
+                <div id="export">
+                    <label for="format">Export to</label>
+                    <button id="csv">csv</button>
+                </div>
+           
         </div>
     
         <div class="tsum">
-            <h3>General information</h3>
+            <div>
+                <h3>General information</h3>
             <table id="table2">
                 <thead>
                     <th>Currency</th>
@@ -196,10 +204,8 @@
                     </tr>
                 </tbody>
             </table><br>
+            </div>
 
-            <label for="format">Export to</label>
-            <button id="csv">csv</button><button>pdf</button>
-            
         </div>
     </div>
 <script src="./js/jquery-3.6.0.js"></script>
