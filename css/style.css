@@ -4,7 +4,14 @@
 {
     padding: 0%;
     margin: 0%;
+    
 }
+ 
+.general{
+    display: inline-block;
+    width: 100%;
+}
+
 
 #body{
    font-family: Arial, Helvetica, sans-serif;
@@ -48,7 +55,9 @@ button
 .wrapper
 {
     position: relative;
+    margin: 10px;
     bottom: 0%;
+    
 }
 
 .container {
@@ -172,18 +181,18 @@ button
     position: absolute;
     margin-top:0px;
     display: none;
-    width: 100%;
     left: -200%;
-    z-index: 3;
+    z-index: 2;
     overflow: auto;
 }
 
 .tags
 {
-    width: 60%;
+    width: 300px;
     height: 100%;
     padding: 15px;
     background-color: rgb(145, 168, 168);
+    margin: 10px;
     
 }
 
@@ -208,9 +217,9 @@ button
 .data
 {
     overflow: auto;
-    width: 95%;
-    margin-left: 0%;
-    height: 80%;
+    width: 100%;
+    margin-left:0px;
+    height: 65.7%;
     background-color: rgb(178, 192, 192);
 }
 
@@ -224,21 +233,71 @@ button
 {
     position: sticky;
     color: white;
-    background-color:rgb(92, 116, 116);
+    background-color:rgb(102, 131, 131);
     z-index: 1;
     
 }
 
 .tsum
 {
- padding: 20px;
+ padding-top: 5;
+ padding-bottom: 0%;
  text-align: center;
- bottom: 0;
+ bottom: 0px;
+ position: absolute;
+ width: 100%;
+ margin: auto;
 }
+
+body .general .tsum{
+    position: fixed;
+    padding: px;
+    height:px;
+}
+.tsum div{
+    display: flex;
+}
+
+.tsum table {
+    width: 400px;
+    padding: 23px;
+    height: 30px;
+    margin: 10px;
+}
+
+.tsum table td{
+    padding: 5px 12px;
+}
+
+.tsum #export{
+
+    width: 400px;
+    padding: 23px;
+    display: block;
+}
+
+
+
+.tsum #export button{
+    float: right;
+}
+
 
 .tsum tr
 {
     color: white;
+}
+
+@media(max-width:550px){
+    .tsum div{
+        display: block;
+    }
+   
+}
+@media(max-width:665px){
+    table{
+        width: 665;
+    }
 }
 
 .data table thead
@@ -285,6 +344,8 @@ td span
     display: none;
 }
 
+
+
 /* forms */
 
   .modal-content {
@@ -330,12 +391,111 @@ td span
   }
 
  
-@media (min-width:750px){
+@media (min-width:1000px){
+
+    *{
+        overflow: hidden;
+    }
     .mobile-nav-toggle
     {
     display: none;
     }
+
+    #menu-content
+    {
+    position: absolute;
+    margin-top:0px;
+    display: block;
+    width: 300px;
+    left: 0%;
+    height: 53%;
+    overflow: auto;
+    }
+
+
+    .data
+    {
+    width: 100%;
+    margin-left: 290px;
+    height: 80%;
+    background-color: rgb(178, 192, 192);
+    margin-right: 0px;
+   }
+
+   body table{
+    overflow: auto;
+    width:100%;
+   }
+
+   .tags{
+    width: 90.5%;
+   }
+
+   .tsum{
+       width: 260px;
+       z-index: 2;
+       bottom: 0%;
+       position: absolute;
+   }
+
+   /* filter */
+
+   
+
+
+.tags
+{
+    width: auto;
+    left: 0;
+    height: auto;
+    padding: 1px;
+    background-color: rgb(147, 165, 165);
+    margin: 10px;
+    
 }
+
+#menu-content input
+{
+    margin:5 px;
+}
+
+.tags .tags-box
+{
+    background: rgb(92, 116, 116);
+    color: white;
+    padding: 10px;
+    margin: 5px;
+}
+
+.tags .tags-box h3
+{
+    margin: 7px;
+}
+
+.tsum{
+    width:300px;
+    height: 300px;
+}
+.tsum div{
+    display: block;
+}
+
+.tsum table {
+    width: auto;
+    padding: 30px;
+    height: 30px;
+    margin: 10px;
+}
+.tsum #export{
+    width: auto;
+    margin-top: -23px;
+}
+}
+
+
+
+
+
 
 
 

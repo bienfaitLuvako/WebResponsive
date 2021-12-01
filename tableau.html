@@ -12,195 +12,211 @@
 
 <body>
     
+   
     <div class="dashBoardHead">
         <i class="bi-list mobile-nav-toggle"></i>
         <h1>Dashboard</h1>
     </div>
-    <div id="menu-content">
-
-        <div class="tags filters">
-
-            <h2>Filters</h2>
-
-            <!-- customer identity(either by code or by name)-->
-
-            <div class="tags-box">
-                <h3>Customer Identities</h3>
-                <div id="filter_Custcode">
-                    <label for="">By custamer Code</label>
-                    <input type="number" id="custcode">
-                </div>
     
-                <div id="filter_Custname">
-                    <label for="">By customer Name</label>
-                    <input type="text" id="customerName">
+    <div class="general">
+
+        <div id="menu-content">
+
+            <div class="tags filters">
+    
+                <h2>Filters</h2>
+    
+                <!-- customer identity(either by code or by name)-->
+    
+                <div class="tags-box">
+                    <h3>Customer Identities</h3>
+                    <div id="filter_Custcode">
+                        <label for="">By custamer Code</label>
+                        <input type="number" id="custcode">
+                    </div>
+        
+                    <div id="filter_Custname">
+                        <label for="">By customer Name</label>
+                        <input type="text" id="customerName">
+                    </div>
                 </div>
-            </div>
-            
-            <!-- End customer identity-->
-
-            <!-- select site -->
-            <div class="tags-box" id="filter_site">
-
-                <h3>Selecting site(s)</h3>
-
-                <input type="checkbox" id="custcode">
-                <label for="">All</label><br>
-                <input type="checkbox" id="custcode">
-                <label for="">Goma</label><br>
-                <input type="checkbox" id="custname">
-                <label for="">Beni</label><br>
-                <input type="checkbox" id="Paiement Mode">
-                <label for="">Butembo</label><br>
-                <input type="checkbox" id="Acoout">
-                <label for="">Bunia</label><br>
-
-            </div>
-
-             <!-- select payment mode-->
-             <div class="tags-box" id="filter_payment">
-                <h3>Select Payment mode</h3>
-                <input type="checkbox" id="Payment Mode">
-                <label for="">All</label><br>
-                <input type="checkbox" id="Payment Mode">
-                <label for="">Airtel Money</label><br>
-                <input type="checkbox" id="Acoout">
-                <label for="">Orange Money</label><br>
-                <input type="checkbox" id="Acoout">
-                <label for="">M-pesa</label><br>
-
-            </div>
-
-             <!-- Periode of time-->
-             <div class="tags-box" id="filter_date">
-
-                <h3>Select a period</h3>
-                <label for="biginningdate">Start</label>
-                <input type="date" id="biginningdate"><br>
-                <label for="enddate">End</label>
-                <input type="date" id="enddate">
-            </div>
-            
-            <!-- select stutus-->
-            <div class="tags-box" id="filter_status">
-                <h3>Select payments status</h3>
-
-                <input type="checkbox" id="Payment Mode">
-                <label for="">All</label><br>
-                <input type="checkbox" id="Payment Mode">
-                <label for="">Success</label><br>
-                <input type="checkbox" id="Acoout">
-                <label for="">Pending</label><br>
-                <input type="checkbox" id="Acoout">
-                <label for="">Failed</label><br>
-
-            </div>
-           
-            <div class="tags-box">
-                <form id="filter_colonne" action="" method="">
-                    <h3>Choosing columns to display</h3>
-
+                
+                <!-- End customer identity-->
+    
+                <!-- select site -->
+                <div class="tags-box" id="filter_site">
+    
+                    <h3>Selecting site(s)</h3>
+    
                     <input type="checkbox" id="custcode">
                     <label for="">All</label><br>
                     <input type="checkbox" id="custcode">
-                    <label for="">Cusomer code</label><br>
+                    <label for="">Goma</label><br>
                     <input type="checkbox" id="custname">
-                    <label for="">customer name</label><br>
+                    <label for="">Beni</label><br>
                     <input type="checkbox" id="Paiement Mode">
-                    <label for="">Payment mode</label><br>
+                    <label for="">Butembo</label><br>
                     <input type="checkbox" id="Acoout">
-                    <label for="">Amount paid</label><br>
-                    <input type="checkbox" id="custcode">
-                    <label for="">Currency</label><br>
-                </form>
+                    <label for="">Bunia</label><br>
+    
+                </div>
+    
+                 <!-- select payment mode-->
+                 <div class="tags-box" id="filter_payment">
+                    <h3>Select Payment mode</h3>
+                    <input type="checkbox" id="Payment Mode">
+                    <label for="">All</label><br>
+                    <input type="checkbox" id="Payment Mode">
+                    <label for="">Airtel Money</label><br>
+                    <input type="checkbox" id="Acoout">
+                    <label for="">Orange Money</label><br>
+                    <input type="checkbox" id="Acoout">
+                    <label for="">M-pesa</label><br>
+    
+                </div>
+    
+                 <!-- Periode of time-->
+                 <div class="tags-box" id="filter_date">
+    
+                    <h3>Select a period</h3>
+                    <label for="biginningdate">Start</label>
+                    <input type="date" id="biginningdate"><br>
+                    <label for="enddate">End</label>
+                    <input type="date" id="enddate">
+                </div>
+                
+                <!-- select stutus-->
+                <div class="tags-box" id="filter_status">
+                    <h3>Select payments status</h3>
+    
+                    <input type="checkbox" id="Payment Mode">
+                    <label for="">All</label><br>
+                    <input type="checkbox" id="Payment Mode">
+                    <label for="">Success</label><br>
+                    <input type="checkbox" id="Acoout">
+                    <label for="">Pending</label><br>
+                    <input type="checkbox" id="Acoout">
+                    <label for="">Failed</label><br>
+    
+                </div>
+               
+                <div class="tags-box">
+                    <form id="filter_colonne" action="" method="">
+                        <h3>Choosing columns to display</h3>
+    
+                        <input type="checkbox" id="custcode">
+                        <label for="">All</label><br>
+                        <input type="checkbox" id="custcode">
+                        <label for="">Cusomer code</label><br>
+                        <input type="checkbox" id="custname">
+                        <label for="">customer name</label><br>
+                        <input type="checkbox" id="Paiement Mode">
+                        <label for="">Payment mode</label><br>
+                        <input type="checkbox" id="Acoout">
+                        <label for="">Amount paid</label><br>
+                        <input type="checkbox" id="custcode">
+                        <label for="">Currency</label><br>
+                    </form>
+                </div>
+    
+                <div class="tags-box" id="filter_nbrligne">
+    
+                    <label for="">Number of lines to display</label>
+                    <input type="number" id="nbrligne">
+                </div>
+                <div>
+                    <button type="submit">Apply</button>
+                    <button class="cancelbtn" id="btncancel">Cancel</button>
+                </div>
             </div>
-
-            <div class="tags-box" id="filter_nbrligne">
-
-                <label for="">Number of lines to display</label>
-                <input type="number" id="nbrligne">
-            </div>
-            <div>
+    
+            <div class="tags" id="settings">
+                <h2>Settings</h2>
+                <div class="settings-items tags-box">
+                    <label for="lang">Change language</label><br /><br />
+                    <select name="lang" id="">
+                        <option value="en">English</option>
+                        <option value="en">French</option>
+                    </select>
+                </div>
+    
+                <div class="tags-box" id ="theme">
+                    <label for="theme">Theme</label>
+                    <input type="color">
+                </div>
+                
                 <button type="submit">Apply</button>
                 <button class="cancelbtn" id="btncancel">Cancel</button>
+                
+                <div class="tags-box" id ="">
+                    <button onclick="window.location.href='index.html'">Logout</button>
+               </div>
             </div>
-        </div>
-
-        <div class="tags" id="settings">
-            <h2>Settings</h2>
-            <div class="settings-items tags-box">
-                <label for="lang">Change language</label><br /><br />
-                <select name="lang" id="">
-                    <option value="en">English</option>
-                    <option value="en">French</option>
-                </select>
-            </div>
-
-            <div class="tags-box" id ="theme">
-                <label for="theme">Theme</label>
-                <input type="color">
-            </div>
+    
             
-            <button type="submit">Apply</button>
-            <button class="cancelbtn" id="btncancel">Cancel</button>
-            
-            <div class="tags-box" id ="">
-                <button onclick="window.location.href='index.html'">Logout</button>
-           </div>
-        </div>
-    </div>
-    <div class="wrapper">
-        <div class="data">
-            <table id="table1">
-                <thead>
-                    <th class="identity01">Customer code</th>
-                    <th class="identity02">Customer name</th>  
-                    <th>Date/Time</th>
-                    <th>Payment Mode</th>
-                    <th>Amount payed</th>
-                    <th>Currency</th>
-                    <th>Exchange rate</th>
-                </thead>
-                <tbody>
-            
-                </tbody>
-            </table>
         </div>
     
+        <div class="wrapper">
+            <div class="data">
+                <table id="table1">
+                    <thead>
+                        <th class="identity01">Customer code</th>
+                        <th class="identity02">Customer name</th>  
+                        <th>Date/Time</th>
+                        <th>Payment Mode</th>
+                        <th>Amount payed</th>
+                        <th>Currency</th>
+                        <th>Exchange rate</th>
+                    </thead>
+                    <tbody>
+                
+                    </tbody>
+                </table>
+            </div>
+        
+        </div>
+
         <div class="tsum">
             <h3>General information</h3>
-            <table id="table2">
-                <thead>
-                    <th>Currency</th>
-                    <th>Exchange rate</th>
-                    <th>Sum</th>
-                    <th>Average</th>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>USD</td>
-                        <td>1</td>
-                        <td>1 500</td>
-                        <td>10</td>
-                    </tr>
-                    <tr>
-                        <td>CDF</td>
-                        <td>2000</td>
-                        <td>3 000 000</td>
-                        <td>20 000</td>
-                    </tr>
-                </tbody>
-            </table><br>
-
-            <label for="format">Export to</label>
-            <select name="format" id="print">
-                <option value="">csv</option>
-                <option value="">pdf</option>
-                <option value="">xlsx</option>
-            </select>
-            <button type="submit">OK</button>
+            <div class="tsum1">
+                <div id="resultat">
+                    <table id="table2">
+                        <thead>
+                            <th>Currency</th>
+                            <th>Exchange rate</th>
+                            <th>Sum</th>
+                            <th>Average</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>USD</td>
+                                <td>1</td>
+                                <td>1 500</td>
+                                <td>10</td>
+                            </tr>
+                            <tr>
+                                <td>CDF</td>
+                                <td>2000</td>
+                                <td>3 000 000</td>
+                                <td>20 000</td>
+                            </tr>
+                        </tbody>
+                    </table><br>
+                </div>
+    
+                <div id="export">
+                    <label for="format">Export to</label>
+                    <select name="format" id="print">
+                        <option value="">csv</option>
+                        <option value="">pdf</option>
+                        <option value="">xlsx</option>
+                    </select>
+                    <button type="submit">OK</button>
+                </div>
+            </div>
         </div>
     </div>
+
 <script src="./js/jquery-3.6.0.js"></script>
 <script src="./js/main.js"></script>
 </body>
