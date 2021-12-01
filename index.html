@@ -10,69 +10,72 @@
 </head>
 
 <body>
-    <div class="dashBoardHead" id="btns">
-        <h1>Clients <br> payments</h1>
-        <button id="agent">Agent</button>
-        <button id="admin">Admin</button>
-    </div>
-    
-    <div class="indexBody">
-    
-        <div class="container shortMessage">
-            <div data-aos="zoom-in">
-                <h2>Lorem</h2>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis, quibusdam 
-                    iure! Incidunt officiis non esse perspiciatis illo 
-                    accusantium obcaecati eligendi sequi libero. Obcaecati
-                     aspernatur minima ad nobis, eum ab ipsum!
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi iure cumque labore
-                     nisi? Excepturi, dolorem doloremque. Atque ipsum sed aliquid. Enim suscipit repellendus 
-                     nihil aliquid reiciendis recusandae voluptatibus laborum eos.
-                </p>
+    <div id="body">
+        <div class="dashBoardHead" id="btns">
+            <h1>Clients <br> payments</h1>
+            <button id="agent">Agent</button>
+            <button id="admin">Admin</button>
+        </div>
+        
+        <div class="indexBody">
+        
+            <div class="container shortMessage">
+                <div data-aos="zoom-in">
+                    <h2>Lorem</h2>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis, quibusdam 
+                        iure! Incidunt officiis non esse perspiciatis illo 
+                        accusantium obcaecati eligendi sequi libero. Obcaecati
+                         aspernatur minima ad nobis, eum ab ipsum!
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi iure cumque labore
+                         nisi? Excepturi, dolorem doloremque. Atque ipsum sed aliquid. Enim suscipit repellendus 
+                         nihil aliquid reiciendis recusandae voluptatibus laborum eos.
+                    </p>
+                </div>
+                
+                <div data-aos="zoom-in">
+                    <h2>Lorem ipsum, dolor sit</h2>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis, quibusdam 
+                        iure! Incidunt officiis non esse perspiciatis illo 
+                        accusantium obcaecati eligendi sequi libero. Obcaecati
+                         aspernatur minima ad nobis, eum ab ipsum!
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi iure cumque labore
+                         nisi? Excepturi, dolorem doloremque. Atque ipsum sed aliquid. Enim suscipit repellendus 
+                         nihil aliquid reiciendis recusandae voluptatibus laborum eos.
+                    </p>
+                </div>
             </div>
-            
-            <div data-aos="zoom-in">
-                <h2>Lorem ipsum, dolor sit</h2>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis, quibusdam 
-                    iure! Incidunt officiis non esse perspiciatis illo 
-                    accusantium obcaecati eligendi sequi libero. Obcaecati
-                     aspernatur minima ad nobis, eum ab ipsum!
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi iure cumque labore
-                     nisi? Excepturi, dolorem doloremque. Atque ipsum sed aliquid. Enim suscipit repellendus 
-                     nihil aliquid reiciendis recusandae voluptatibus laborum eos.
-                </p>
+    
+            <div class="modal-content animate" id="id01">
+                <form  >
+          
+                
+                    <label for="uname"><b>Username</b></label>
+                    <input type="text" placeholder="Entrer your Username" name="nom" required>
+              
+                    <label for="uname"><b>Password</b></label>
+                    <input type="text" placeholder="Entrer your Password" name="prenom" required>
+                      
+                    <div>
+                       
+                        <label for="uname"><b>Mail</b></label>
+                        <input type="text" placeholder="Saisissez mail adress" name="numPhone" required>
+                  
+                        <label for="uname"><b>Password</b></label>
+                        <input type="text" placeholder="Enter your Password" name="niveauEtude" required>
+                    </div>
+                      
+                    <button type="submit" onclick="window.location.href='tableau.html'">Submit</button>
+                    <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Annuler</button>
+                  
+              </form>
             </div>
         </div>
-
-        <form class="modal-content animate" id="id01" >
-      
-            <div class="container">
-              <label for="uname"><b>Username</b></label>
-              <input type="text" placeholder="Entrer your Username" name="nom" required>
-        
-              <label for="uname"><b>Password</b></label>
-              <input type="text" placeholder="Entrer your Password" name="prenom" required>
-                
-              <div>
-                 
-                  <label for="uname"><b>Mail</b></label>
-                  <input type="text" placeholder="Saisissez mail adress" name="numPhone" required>
-            
-                  <label for="uname"><b>Password</b></label>
-                  <input type="text" placeholder="Enter your Password" name="niveauEtude" required>
-              </div>
-                
-              <button type="submit" onclick="window.location.href='tableau.html'">Submit</button>
-              <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Annuler</button>
-              
-            </div>
-        
-        </form>
     </div>
-    
     <div class="tsum">
         <p><b>copyright@nuru.cd</b></p>
     </div>
+    
+</body>       
 
 <script src="./js/jquery-3.6.0.js"></script>
 <script src="./js/main.js"></script>

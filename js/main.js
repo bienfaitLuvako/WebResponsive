@@ -3,8 +3,8 @@ $(function(){
     //showing filters when clicking to the toggle nav button
 
     let counter = 0;
-    $('.mobile-nav-toggle').click(function(){
-        counter++;
+    $('.mobile-nav-toggle').click(() => {
+            counter++;
 
         $('#menu-content').css('left','0%').toggle(200);
         $('.wrapper').css({'position':'fixed','top':'0px','width':'100%'});
