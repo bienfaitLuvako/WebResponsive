@@ -4,7 +4,11 @@
 {
     padding: 0%;
     margin: 0%;
-    font-family: century Gauthic;
+    color: black;
+}
+
+body{
+    background-color: #e9ebec;
     
 }
  
@@ -36,7 +40,7 @@ button,select, .tags .tags-box select,
 input[type="number"],
 input[type="date"] 
 {
-    background-color: rgb(119, 145, 145);
+    background-color: #0E6938;
     color: white;
     padding: 6px 12px;
     border: none;
@@ -51,6 +55,7 @@ button
 {
     width: auto;
     border-radius: 7px;
+
 }
 
 .wrapper
@@ -155,7 +160,7 @@ button
     position: sticky;
     top: 0%;
     z-index: 4;
-    background-color: rgb(92, 116, 116);
+    background-color: #0E6938;
     width: 100%;
     padding: 2% 2% 2%;
     text-align: center;
@@ -192,8 +197,9 @@ button
     width: 300px;
     height: 100%;
     padding: 15px;
-    background-color: rgb(145, 168, 168);
+    background-color: #ffffff;
     margin: 10px;
+    color: #000;
     
 }
 
@@ -204,8 +210,8 @@ button
 
 .tags .tags-box
 {
-    background: rgb(92, 116, 116);
-    color: white;
+    background: #ffffff;
+    color: black;
     padding: 10px;
     margin: 5px;
 }
@@ -220,10 +226,25 @@ button
     overflow: auto;
     width: 100%;
     margin-left:0px;
-    height: 65.7%;
-    background-color: rgb(178, 192, 192);
+    height: 82%;
+    background-color: #ffffff;
 }
 
+#page{
+    display: flex;
+    width: 200;
+    position: absolute;
+    bottom: 26%;
+    margin-left: 10%;
+}
+
+    #export{
+    position: absolute;
+    margin-left:60% ;
+    bottom: 26%;
+    width: 120px;
+    
+}
  table, #menu-content {
     font-size: 13px;
     border-collapse: collapse;
@@ -233,21 +254,22 @@ button
 .data table thead,.tsum
 {
     position: sticky;
-    color: white;
-    background-color:rgb(102, 131, 131);
+    color: black;
+    background-color:#ffffff;
     z-index: 1;
     
 }
 
 .tsum
 {
+
  padding-top: 5;
  padding-bottom: 0%;
  text-align: center;
  bottom: 0px;
- position: absolute;
- width: 100%;
- margin: auto;
+ position:relative ;
+ width: auto;
+ display: block;
 }
 
 body .general .tsum{
@@ -255,15 +277,12 @@ body .general .tsum{
     padding: px;
     height:px;
 }
-.tsum div{
-    display: flex;
-}
 
 .tsum table {
     width: 400px;
     padding: 23px;
     height: 30px;
-    margin: 10px;
+    margin: auto;
 }
 
 .tsum table td{
@@ -272,9 +291,8 @@ body .general .tsum{
 
 .tsum #export{
 
-    width: 400px;
+    width: 200px;
     padding: 23px;
-    display: block;
 }
 
 
@@ -324,14 +342,15 @@ td span
 .data .identity1, .data .identity2, .identity01,.identity02
 {
     position: sticky;
-    background-color:rgb(92, 116, 116);
-    color: white;
+    background-color:#ffffff;
+    color: black;
 
 }
 
 .identity01,.identity02
 {
-    background-color:rgb(15, 66, 66);
+    background-color:#ffffff;
+    color: black;
 }
 
 .identity1, .identity01
@@ -364,11 +383,11 @@ td span
   }
 
   .pagination li.active a{
-    background-color: rgb(92, 116, 116);;
+    background-color: #0E6938;
     color: white;
   }
   
-  .pagination a:hover:not(.active) {background-color: rgb(140, 168, 168);}
+  .pagination a:hover:not(.active) {background-color: #65be8f;}
 
 /* forms */
 
@@ -379,7 +398,7 @@ td span
     width: 50%;
     min-width: 270px;
     border: none;
-    background-color: rgba(0,0,0,0.1);
+    background-color: #ffffff;
     border-radius: 10px;
     padding: 12px;
     justify-content: center;
@@ -406,6 +425,8 @@ td span
       }
   }
 
+  
+
 
 
   .cancelbtn {
@@ -418,6 +439,8 @@ td span
 @media (min-width:1000px){
 
     *{
+        padding: 0;
+        margin: 0;
         overflow: hidden;
     }
     .mobile-nav-toggle
@@ -432,19 +455,41 @@ td span
     display: block;
     width: 300px;
     left: 0%;
-    height: 53%;
+    height:61%;
     overflow: auto;
     }
 
 
     .data
     {
-    width: 100%;
+    width: auto;
+    padding: 15px;
     margin-left: 290px;
     height: 80%;
-    background-color: rgb(178, 192, 192);
+    background-color: #ffffff;
     margin-right: 0px;
    }
+
+   .tabledata{
+       width: 100%;
+       overflow: auto;
+   }
+
+   #page{
+    display: flex;
+    width: 200;
+    position: absolute;
+    bottom: 8;
+    margin-left: 10%;
+}
+
+    #export{
+    position: absolute;
+    margin-left:60% ;
+    width: 120px;
+    bottom: 8;
+    
+}
 
    body table{
     overflow: auto;
@@ -473,7 +518,7 @@ td span
     left: 0;
     height: auto;
     padding: 1px;
-    background-color: rgb(147, 165, 165);
+    background-color: #ffffff;
     margin: 10px;
     
 }
@@ -485,8 +530,8 @@ td span
 
 .tags .tags-box
 {
-    background: rgb(92, 116, 116);
-    color: white;
+    background: rgb(208, 212, 212);
+    color: black;
     padding: 10px;
     margin: 5px;
 }
@@ -497,8 +542,9 @@ td span
 }
 
 .tsum{
-    width:300px;
-    height: 300px;
+    width:265px;
+    height: 180px;
+    
 }
 .tsum div{
     display: block;
@@ -512,8 +558,14 @@ td span
 }
 .tsum #export{
     width: auto;
-    margin-top: -23px;
+    margin-top: -25px;
+    padding-top: 0;
 }
+
+.tsum table tbody tr td{
+    padding: 5px 1px;
+}
+
 }
 
 
