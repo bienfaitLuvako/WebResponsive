@@ -40,11 +40,11 @@
             <!-- End customer identity-->
 
             <!-- select site -->
-            <div class="tags-box" id="filter_site">
+            <div class="tags-box" id="filter-site">
 
                 <h3>Selecting site(s)</h3>
 
-                <input type="checkbox" id="custcode">
+                <input type="checkbox" id="all">
                 <label for="">All</label><br>
                 <input type="checkbox" id="custcode">
                 <label for="">Goma</label><br>
@@ -58,7 +58,7 @@
             </div>
 
              <!-- select payment mode-->
-             <div class="tags-box" id="filter_payment">
+             <div class="tags-box" id="filter-payment-mode">
                 <h3>Select Payment mode</h3>
                 <input type="checkbox" id="Payment Mode">
                 <label for="">All</label><br>
@@ -72,7 +72,7 @@
             </div>
 
              <!-- Periode of time-->
-             <div class="tags-box" id="filter_date">
+             <div class="tags-box" id="filter-date">
 
                 <h3>Select a period</h3>
                 <label for="biginningdate">Start</label>
@@ -82,7 +82,7 @@
             </div>
             
             <!-- select stutus-->
-            <div class="tags-box" id="filter_status">
+            <div class="tags-box" id="filter-payment-status">
                 <h3>Select payments status</h3>
 
                 <input type="checkbox" id="Payment Mode">
@@ -96,8 +96,7 @@
 
             </div>
            
-            <div class="tags-box">
-                <form id="filter_colonne" action="" method="">
+            <div class="tags-box" id="filter-selectedColumns">
                     <h3>Choosing columns to display</h3>
 
                     <input type="checkbox" id="custcode">
@@ -112,16 +111,15 @@
                     <label for="">Amount paid</label><br>
                     <input type="checkbox" id="custcode">
                     <label for="">Currency</label><br>
-                </form>
             </div>
 
-            <div class="tags-box" id="filter_nbrligne">
+            <div class="tags-box" id="numberOfLines">
 
                 <label for="">Number of lines to display</label>
-                <input type="number" id="nbrligne">
+                <input type="number" id="nbRows" value="20">
             </div>
             <div>
-                <button type="submit">Apply</button>
+                <button type="submit" id="applyFilters">Apply</button>
                 <button class="cancelbtn" id="btncancel">Cancel</button>
             </div>
         </div>
@@ -165,6 +163,13 @@
             
                 </tbody>
             </table>
+            <div>
+                <a href="javascript:void(0)" id="previous">&laquo;</a>
+                <ul class="pagination">
+
+                </ul>
+                <a href="javascript:void(0)" id="next">&raquo;</a>
+              </div>
         </div>
     
         <div class="tsum">
@@ -193,15 +198,12 @@
             </table><br>
 
             <label for="format">Export to</label>
-            <select name="format" id="print">
-                <option value="">csv</option>
-                <option value="">pdf</option>
-                <option value="">xlsx</option>
-            </select>
-            <button type="submit">OK</button>
+            <button id="csv">csv</button>
+            <button>pdf</button>
         </div>
     </div>
 <script src="./js/jquery-3.6.0.js"></script>
+<script src="./js/table2csv.min.js"></script>
 <script src="./js/main.js"></script>
 </body>
 

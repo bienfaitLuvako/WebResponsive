@@ -260,6 +260,31 @@ td span
     display: none;
 }
 
+/*pagination*/
+.pagination {
+    display: inline-block;
+    margin: auto;
+  }
+
+  .pagination li
+  {
+      list-style: none;
+      display: inline-block;
+  }
+  
+  .pagination a,a {
+    color: black;
+    padding: 8px 16px;
+    text-decoration: none;
+  }
+
+  .pagination li.active a{
+    background-color: rgb(92, 116, 116);;
+    color: white;
+  }
+  
+  .pagination a:hover:not(.active) {background-color: rgb(140, 168, 168);}
+
 /* forms */
 
   .modal-content {
