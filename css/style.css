@@ -8,7 +8,7 @@
 }
 
 body{
-    background-color: #e9ebec;
+    background-color: #ffffff;
     
 }
  
@@ -21,7 +21,7 @@ body{
 #body{
    
    overflow-x: hidden;
-   background-color:rgb(207, 226, 226);
+   background-color:#ffffff;
    height: 100%;
    width: 100%;
    margin: 0;
@@ -41,7 +41,7 @@ input[type="number"],
 input[type="date"] 
 {
     background-color: #0E6938;
-    color: white;
+    color: black;
     padding: 6px 12px;
     border: none;
     cursor: pointer;
@@ -161,7 +161,7 @@ button
     top: 0%;
     z-index: 4;
     background-color: #0E6938;
-    width: 100%;
+    width: auto;
     padding: 2% 2% 2%;
     text-align: center;
 
@@ -197,8 +197,8 @@ button
     width: 300px;
     height: 100%;
     padding: 15px;
-    background-color: #ffffff;
-    margin: 10px;
+    background-color: #f7f5f5;
+    margin: px;
     color: #000;
     
 }
@@ -206,11 +206,13 @@ button
 #menu-content input
 {
     margin: 5px;
+    color: white;
+    font-size: 16px;
 }
 
 .tags .tags-box
 {
-    background: #ffffff;
+    background: #e7e9e8;
     color: black;
     padding: 10px;
     margin: 5px;
@@ -224,25 +226,45 @@ button
 .data
 {
     overflow: auto;
-    width: 100%;
-    margin-left:0px;
-    height: 82%;
-    background-color: #ffffff;
+    width: auto;
+    margin: 0;
+    height:90%;
+}
+
+.expopage{
+    display: flex;
+    padding: auto;
+    position: relative;
+    bottom: 5px;
 }
 
 #page{
     display: flex;
-    width: 200;
+    width:auto;
     position: absolute;
-    bottom: 26%;
-    margin-left: 10%;
+    bottom: 5%;
+    margin-left: auto;
 }
 
-    #export{
+#export{
     position: absolute;
-    margin-left:60% ;
-    bottom: 26%;
+    margin-left:50% ;
+    bottom: 5%;
     width: 120px;
+    
+}
+
+.tabledata{
+    height: 80%;
+    overflow: auto;
+}
+
+#resul{
+    position: absolute;
+    margin-left:85% ;
+    bottom: 5%;
+    width: 45px;
+    padding: auto;
     
 }
  table, #menu-content {
@@ -263,13 +285,17 @@ button
 .tsum
 {
 
- padding-top: 5;
+ padding-top: 5px;
  padding-bottom: 0%;
  text-align: center;
  bottom: 0px;
- position:relative ;
- width: auto;
- display: block;
+ position:absolute ;
+ width: 100%;
+ display: none;
+ height: auto;
+ box-sizing: border-box;
+ 
+
 }
 
 body .general .tsum{
@@ -279,7 +305,7 @@ body .general .tsum{
 }
 
 .tsum table {
-    width: 400px;
+    width: auto;
     padding: 23px;
     height: 30px;
     margin: auto;
@@ -455,8 +481,12 @@ td span
     display: block;
     width: 300px;
     left: 0%;
-    height:61%;
+    height:90%;
     overflow: auto;
+    }
+
+    body{
+        height: 100%;
     }
 
 
@@ -465,7 +495,7 @@ td span
     width: auto;
     padding: 15px;
     margin-left: 290px;
-    height: 80%;
+    height: 60%;
     background-color: #ffffff;
     margin-right: 0px;
    }
@@ -475,21 +505,40 @@ td span
        overflow: auto;
    }
 
-   #page{
-    display: flex;
-    width: 200;
-    position: absolute;
-    bottom: 8;
-    margin-left: 10%;
-}
+    
+    #page{
+        display: flex;
+        width:auto;
+        position: absolute;
+        bottom: 5%;
+        margin-left: auto;
+        padding-bottom: 8px;
+    }
 
     #export{
-    position: absolute;
-    margin-left:60% ;
-    width: 120px;
-    bottom: 8;
-    
-}
+        position: absolute;
+        margin-left:50% ;
+        bottom: 5%;
+        width: 120px;
+        padding-bottom: 7px;
+        
+    }
+
+    #resul{
+        padding-bottom: 7px;
+    }
+
+    .expopage{
+        border-radius: 15px;
+        top: 8px;
+        width: 50%;
+        margin-right: 8%;
+        margin-left: auto;
+        padding: 45px;
+        position: relative;
+        background-color: #ffffffff;
+        padding-right: 34px;
+    }
 
    body table{
     overflow: auto;
@@ -503,17 +552,18 @@ td span
    .tsum{
        width: 260px;
        z-index: 2;
-       bottom: 0%;
-       position: absolute;
+       bottom: 100px;
+       position: relative;
    }
-
+    #tsum{
+        display: none;
+    }
    /* filter */
 
    
 
 
-.tags
-{
+    .tags{
     width: auto;
     left: 0;
     height: auto;
@@ -521,50 +571,50 @@ td span
     background-color: #ffffff;
     margin: 10px;
     
-}
+    }
 
-#menu-content input
-{
+    #menu-content input{
     margin:5 px;
-}
+    }
 
-.tags .tags-box
-{
+    .tags .tags-box{
     background: rgb(208, 212, 212);
     color: black;
     padding: 10px;
     margin: 5px;
-}
+    }
 
-.tags .tags-box h3
-{
-    margin: 7px;
-}
+    .tags .tags-box h3
+    {
+        margin: 7px;
+    }
 
-.tsum{
-    width:265px;
-    height: 180px;
+    .tsum{
+        width:265px;
+        height: 180px;
+        
+    }
+    .tsum div{
+        display: block;
+    }
+
+    .tsum table {
+        width: auto;
+        padding: 30px;
+        height: 30px;
+        margin: 10px;
+    }
+    .tsum #export{
+        width: auto;
+        margin-top: -25px;
+        padding-top: 0;
+    }
+
+    .tsum table tbody tr td{
+        padding: 5px 1px;
+    }
+
     
-}
-.tsum div{
-    display: block;
-}
-
-.tsum table {
-    width: auto;
-    padding: 30px;
-    height: 30px;
-    margin: 10px;
-}
-.tsum #export{
-    width: auto;
-    margin-top: -25px;
-    padding-top: 0;
-}
-
-.tsum table tbody tr td{
-    padding: 5px 1px;
-}
 
 }
 
