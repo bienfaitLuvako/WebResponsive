@@ -149,62 +149,69 @@
     </div>
     <div class="wrapper">
         <div class="data">
-                <div class="tabledata">
-                    <table id="table1">
-                        <thead>
-                            <th class="identity01">Customer code</th>
-                            <th class="identity02">Customer name</th>  
-                            <th>Date/Time</th>
-                            <th>Payment Mode</th>
-                            <th>Amount payed</th>
-                            <th>Currency</th>
-                            <th>Exchange rate</th>
-                        </thead>
-                        <tbody>
-                    
-                        </tbody>
-                    </table>
-                </div>
-                <div id="page">
-                    <a href="javascript:void(0)" id="previous">&laquo;</a>
-                    <ul class="pagination">
-    
-                    </ul>
-                    <a href="javascript:void(0)" id="next">&raquo;</a>
-                </div>
-                <div id="export">
-                    <label for="format">Export to</label>
-                    <button id="csv">csv</button>
-                </div>
-           
+            <div class="tabledata">
+                <table id="table1">
+                    <thead>
+                        <th class="identity01">Customer code</th>
+                        <th class="identity02">Customer name</th>  
+                        <th>Date/Time</th>
+                        <th>Payment Mode</th>
+                        <th>Amount payed</th>
+                        <th>Currency</th>
+                        <th>Exchange rate</th>
+                    </thead>
+                    <tbody>
+                
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="expopage">
+            <div id="page">
+                <a href="javascript:void(0)" id="previous">&laquo;</a>
+                <ul class="pagination">
+
+                </ul>
+                <a href="javascript:void(0)" id="next">&raquo;</a>
+            </div>
+            <div id="export">
+                <label for="format">Export to</label><br>
+                <button id="csv">csv</button>
+            </div>
+            <div id="resul">
+                <button id="btnresul" onclick= "document.getElementById('tsum').style.display='block'">Rst</button>
+            </div>
+            
         </div>
     
-        <div class="tsum">
+        <div class="tsum" id="tsum">
             <div>
                 <h3>General information</h3>
-            <table id="table2">
-                <thead>
-                    <th>Currency</th>
-                    <th>Exchange rate</th>
-                    <th>Sum</th>
-                    <th>Average</th>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>USD</td>
-                        <td>1</td>
-                        <td>1 500</td>
-                        <td>10</td>
-                    </tr>
-                    <tr>
-                        <td>CDF</td>
-                        <td>2000</td>
-                        <td>3 000 000</td>
-                        <td>20 000</td>
-                    </tr>
-                </tbody>
-            </table><br>
+                <table id="table2">
+                    <thead>
+                        <th>Currency</th>
+                        <th>Exchange rate</th>
+                        <th>Sum</th>
+                        <th>Average</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>USD</td>
+                            <td>1</td>
+                            <td>1 500</td>
+                            <td>10</td>
+                        </tr>
+                        <tr>
+                            <td>CDF</td>
+                            <td>2000</td>
+                            <td>3 000 000</td>
+                            <td>20 000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            
             </div>
+            <button id="leave" onclick= "document.getElementById('tsum').style.display='none'">leave</button>
 
         </div>
     </div>
