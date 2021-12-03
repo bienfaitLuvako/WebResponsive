@@ -5,10 +5,13 @@
     padding: 0%;
     margin: 0%;
     color: black;
+    font-size: 20px;
+    font-family: 'Raleway', sans-serif;
 }
 
 body{
     background-color: #ffffff;
+    font-size: 26px;
     
 }
  
@@ -32,6 +35,7 @@ h1,h2,h3
 {
     text-align: center;
     width: 100%;
+    font-size: 26px;
     
 }
 
@@ -49,12 +53,15 @@ input[type="date"]
     margin: 5px 0;
     display: inline-block;
     box-sizing: border-box;
+    font-size: 26px;
   }
+
 
 button
 {
     width: auto;
     border-radius: 7px;
+    font-size: 16px;
 
 }
 
@@ -192,6 +199,10 @@ button
     overflow: auto;
 }
 
+#langue{
+    font-size: 16px;
+}
+
 .tags
 {
     width: 300px;
@@ -257,6 +268,7 @@ button
 .tabledata{
     height: 80%;
     overflow: auto;
+
 }
 
 #resul{
@@ -273,72 +285,7 @@ button
     width: 100%;       
 }
 
-.data table thead,.tsum
-{
-    position: sticky;
-    color: black;
-    background-color:#ffffff;
-    z-index: 1;
-    
-}
 
-.tsum
-{
-
- padding-top: 5px;
- padding-bottom: 0%;
- text-align: center;
- bottom: 0px;
- position:absolute ;
- width: 100%;
- display: none;
- height: auto;
- box-sizing: border-box;
- 
-
-}
-
-body .general .tsum{
-    position: fixed;
-    padding: px;
-    height:px;
-}
-
-.tsum table {
-    width: auto;
-    padding: 23px;
-    height: 30px;
-    margin: auto;
-}
-
-.tsum table td{
-    padding: 5px 12px;
-}
-
-.tsum #export{
-
-    width: 200px;
-    padding: 23px;
-}
-
-
-
-.tsum #export button{
-    float: right;
-}
-
-
-.tsum tr
-{
-    color: white;
-}
-
-@media(max-width:550px){
-    .tsum div{
-        display: block;
-    }
-   
-}
 @media(max-width:665px){
     table{
         width: 665;
@@ -375,7 +322,7 @@ td span
 
 .identity01,.identity02
 {
-    background-color:#ffffff;
+    background-color:#ffffff79;
     color: black;
 }
 
@@ -385,10 +332,7 @@ td span
     position: sticky;
 }
 
-.data .identity2, .identity02
-{
-    display: none;
-}
+
 
 /*pagination*/
 .pagination {
@@ -459,6 +403,7 @@ td span
     width: auto;
     background-color: #f44336;
     margin: 0px 0;
+    font-size: 16px;
   }
 
  
@@ -549,15 +494,7 @@ td span
     width: 90.5%;
    }
 
-   .tsum{
-       width: 260px;
-       z-index: 2;
-       bottom: 100px;
-       position: relative;
-   }
-    #tsum{
-        display: none;
-    }
+   
    /* filter */
 
    
@@ -589,30 +526,7 @@ td span
         margin: 7px;
     }
 
-    .tsum{
-        width:265px;
-        height: 180px;
-        
-    }
-    .tsum div{
-        display: block;
-    }
-
-    .tsum table {
-        width: auto;
-        padding: 30px;
-        height: 30px;
-        margin: 10px;
-    }
-    .tsum #export{
-        width: auto;
-        margin-top: -25px;
-        padding-top: 0;
-    }
-
-    .tsum table tbody tr td{
-        padding: 5px 1px;
-    }
+    
 
     
 

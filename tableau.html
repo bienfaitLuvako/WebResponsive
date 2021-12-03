@@ -128,7 +128,7 @@
             <h2>Settings</h2>
             <div class="settings-items tags-box">
                 <label for="lang">Change language</label><br /><br />
-                <select name="lang" id="">
+                <select name="lang" id="langue">
                     <option value="en">English</option>
                     <option value="en">French</option>
                 </select>
@@ -175,45 +175,14 @@
                 <a href="javascript:void(0)" id="next">&raquo;</a>
             </div>
             <div id="export">
-                <label for="format">Export to</label><br>
+                <label for="format">Export </label><br>
                 <button id="csv">csv</button>
             </div>
-            <div id="resul">
-                <button id="btnresul" onclick= "document.getElementById('tsum').style.display='block'">Rst</button>
-            </div>
+            
             
         </div>
     
-        <div class="tsum" id="tsum">
-            <div>
-                <h3>General information</h3>
-                <table id="table2">
-                    <thead>
-                        <th>Currency</th>
-                        <th>Exchange rate</th>
-                        <th>Sum</th>
-                        <th>Average</th>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>USD</td>
-                            <td>1</td>
-                            <td>1 500</td>
-                            <td>10</td>
-                        </tr>
-                        <tr>
-                            <td>CDF</td>
-                            <td>2000</td>
-                            <td>3 000 000</td>
-                            <td>20 000</td>
-                        </tr>
-                    </tbody>
-                </table>
-            
-            </div>
-            <button id="leave" onclick= "document.getElementById('tsum').style.display='none'">leave</button>
-
-        </div>
+       
     </div>
 <script src="./js/jquery-3.6.0.js"></script>
 <script src="./js/table2csv.min.js"></script>
