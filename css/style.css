@@ -385,10 +385,6 @@ td span
     position: sticky;
 }
 
-.data .identity2, .identity02
-{
-    display: none;
-}
 
 /*pagination*/
 .pagination {
