@@ -5,7 +5,7 @@
     padding: 0%;
     margin: 0%;
     color: black;
-    font-size: 20px;
+    font-size: 26px;
     font-family: 'Raleway', sans-serif;
 }
 
@@ -116,7 +116,6 @@ button
     height: auto;
 }
 
-
   
 
   .shortMessage h2
@@ -129,7 +128,7 @@ button
       padding: 90px 30px 60px 0px;
   }
 
-  @media(min-width:700px)
+  /* @media(min-width:700px)
   {
      
       .indexBody
@@ -158,7 +157,7 @@ button
       {
           vertical-align: middle;
       }
-  }
+  } */
 
   /*Dashboard header*/
 
@@ -266,7 +265,7 @@ button
 }
 
 .tabledata{
-    height: 80%;
+    height: 100%;
     overflow: auto;
 
 }
@@ -286,11 +285,11 @@ button
 }
 
 
-@media(max-width:665px){
+/* @media(max-width:665px){
     table{
         width: 665;
     }
-}
+} */
 
 .data table thead
 {
@@ -312,25 +311,21 @@ td span
     cursor: pointer;
 }
 
-.data .identity1, .data .identity2, .identity01,.identity02
+.data .identity1, .identity01
 {
     position: sticky;
     background-color:#ffffff;
     color: black;
+    left: 0%;
 
 }
 
 .identity01,.identity02
 {
-    background-color:#ffffff79;
+    background-color:#ffffff;
     color: black;
 }
 
-.identity1, .identity01
-{
-    left: 0px;
-    position: sticky;
-}
 
 
 
@@ -378,7 +373,7 @@ td span
     padding-top: 15px;
 }
   
-
+/* 
   @media(max-width:958px){
     .modal-content form{
         padding-top: 38px;
@@ -393,7 +388,7 @@ td span
             padding-top: 10px;
         }
       }
-  }
+  } */
 
   
 
@@ -407,12 +402,17 @@ td span
   }
 
  
-@media (min-width:1000px){
+
+
+@media (min-width:722px){
 
     *{
         padding: 0;
         margin: 0;
         overflow: hidden;
+    }
+    .table01{
+        display: none;
     }
     .mobile-nav-toggle
     {
@@ -440,8 +440,8 @@ td span
     width: auto;
     padding: 15px;
     margin-left: 290px;
-    height: 60%;
-    background-color: #ffffff;
+    height: 70%;
+    background-color: #ece9e9;
     margin-right: 0px;
    }
 
@@ -450,39 +450,36 @@ td span
        overflow: auto;
    }
 
-    
-    #page{
-        display: flex;
-        width:auto;
-        position: absolute;
-        bottom: 5%;
-        margin-left: auto;
-        padding-bottom: 8px;
+    .menu .expopage #page{
+        width: auto;
+        font-size: 16px;
+    }
+    .menu .expopage #page a{
+        font-size: 18px;
+        padding-left: 0;
+    }
+    .menu .expopage #export{
+        float: right;
+        margin-left:70%;
+        width: auto;
+    }
+    .menu .expopage #export button{
+        float: right;
+        padding: 5px 5px;
+        margin-left: 5px;
     }
 
-    #export{
-        position: absolute;
-        margin-left:50% ;
-        bottom: 5%;
-        width: 120px;
-        padding-bottom: 7px;
-        
+    .menu .expopage #export label{
+        font-size: 16px;
     }
-
-    #resul{
-        padding-bottom: 7px;
-    }
-
     .expopage{
         border-radius: 15px;
-        top: 8px;
         width: 50%;
-        margin-right: 8%;
-        margin-left: auto;
-        padding: 45px;
+        margin-right: 5%;
+        margin-left:auto;
+        margin-top: 45px;
+        padding: 30px;
         position: relative;
-        background-color: #ffffffff;
-        padding-right: 34px;
     }
 
    body table{
@@ -490,16 +487,14 @@ td span
     width:100%;
    }
 
+   body table thead{
+       position: sticky;
+       background-color: white;
+   }
+
    .tags{
     width: 90.5%;
    }
-
-   
-   /* filter */
-
-   
-
-
     .tags{
     width: auto;
     left: 0;
@@ -526,13 +521,142 @@ td span
         margin: 7px;
     }
 
-    
-
-    
+    .search{
+        display: none;
+    }
 
 }
+/* ajout */
+
+@media(max-width:720px){
+    
+    .wrapper{
+        padding: 5px;
+    }
+
+    #tags-box{
+        display: none;
+    }
+
+    .data, .tabledata{
+        display: none;
+    }
+    thead{
+        display: none;
+    }
 
 
+    table tbody tr td{
+        display: block;
+        text-align: right;
+        padding: 7px;
+        padding-right: 25px;
+        width: auto;
+
+    }
+
+    .expopage1{
+        position: sticky;
+        top: 100%;
+        background-color: white;
+    }
+
+    tr:nth-child(odd) {
+        background: rgb(217, 217, 235);
+      }
+
+    table td:before{
+        content: attr(data-label);
+        position:absolute;
+        left: 5%;
+        overflow: auto;
+
+    }
+
+    table tr #detail{
+        text-align: left;
+        padding-left: 5%;
+
+    }
+    .table01 tbody span{
+        color: rgb(119, 48, 48);
+    }
+
+    /* menu filter */
+
+    .menu{
+        display: flex;
+        margin-bottom: 5px;
+        border: 1px solid black;
+        position:sticky;
+        top: 17px;
+        height: auto;
+        background-color: rgba(152, 211, 174, 0.473);
+        z-index: 3;
+    
+    }
+    .menu .search div{
+        padding: 5px;
+        width: auto;
+        display: flex;
+        margin-left: 5px;
+    }
+    .menu .expopage #page{
+        width: auto;
+        font-size: 16px;
+    }
+    .menu .expopage #page a{
+        font-size: 10px;
+        padding-left: 0;
+    }
+    .menu .expopage #export label{
+        display: none;
+    }
+    .menu .expopage #export{
+        float: right;
+        margin-left:70%;
+        width: auto;
+        margin-bottom: -6px;
+    }
+    .menu .expopage #export button{
+        color: rgb(238, 235, 235);
+        float: right;
+        padding: 5px 5px;
+    }
+    .menu .expopage{
+        width:50%;
+        display: flex;
+        padding: 3px;
+    }
+
+    .menu .search div label{
+        font-size: 16px;
+        margin-left: 10px;
+        color: rgb(5, 5, 5);
+    }
+    .menu div .custo{
+        width: 100%;
+        padding: 4px;
+        font-size:16px ;
+        border-radius: 10px;
+        margin-right: 15px;
+        margin-left: 5px;
+    }
+
+    input::placeholder{
+        width: 100%;
+        padding: 5px;
+        font-size: 16px;
+        background-color: white;
+        color: rgb(139, 136, 136);
+    }
+
+    /* barre recherche */
+      
+        
+
+   
+}
 
 
 

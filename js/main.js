@@ -18,8 +18,10 @@ $(function(){
 
     //submit filters
     $('#menu-content button[type="submit"]').click(function(){
-        $('#menu-content').css('left','-200%').hide(200);
-        $('.wrapper').css({'position':'relative'});
+        if($(window).width() < 720){
+            $('#menu-content').css('left','-200%');
+            $('.wrapper').css({'position':'relative'});
+        }
         counter=0;
     });
 
@@ -31,12 +33,12 @@ $(function(){
     }
 
 
-    //positionning the second column according to the first column width
+    // positionning the second column according to the first column width
 
     const firstColumnWidth = $('.identity01').css('width');
     $('.identity2,.identity02').css('left',firstColumnWidth);
 
-    //showing details related to customer code id.est customer name...
+    // showing details related to customer code id.est customer name...
     
     $('td span').on({
         mouseover:function()
@@ -58,7 +60,7 @@ $(function(){
        $('.modal-content').show(); 
     })
 
-    //table pagination
+    // table pagination
     var numberOfRows = $('#table1 tbody tr').length;
     var limitPage = $('#nbRows').val();
     $('#table1 tbody tr:gt('+(limitPage-1)+')').hide();
@@ -139,5 +141,4 @@ $(function(){
         $('#table1').table2csv({"quoteFields":false});
     })
 })
-
 
