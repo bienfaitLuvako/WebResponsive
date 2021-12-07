@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>dashboard</title>
 
@@ -24,7 +25,7 @@
 
             <!-- customer identity(either by code or by name)-->
 
-            <div class="tags-box">
+            <div class="tags-box" id="tags-box">
                 <h3>Customer Identities</h3>
                 <div id="filter_Custcode">
                     <label for="">By custamer Code</label>
@@ -128,7 +129,7 @@
             <h2>Settings</h2>
             <div class="settings-items tags-box">
                 <label for="lang">Change language</label><br /><br />
-                <select name="lang" id="">
+                <select name="lang" id="langue">
                     <option value="en">English</option>
                     <option value="en">French</option>
                 </select>
@@ -152,8 +153,8 @@
             <div class="tabledata">
                 <table id="table1">
                     <thead>
-                        <th class="identity01">Customer code</th>
-                        <th class="identity02">Customer name</th>  
+                        <th  data-label="Customer code" class="identity01">Customer code</th>
+                        <th  data-lable="Customer name" class="identity02">Customer name</th>  
                         <th>Date/Time</th>
                         <th>Payment Mode</th>
                         <th>Amount payed</th>
@@ -166,55 +167,164 @@
                 </table>
             </div>
         </div>
-        <div class="expopage">
-            <div id="page">
-                <a href="javascript:void(0)" id="previous">&laquo;</a>
-                <ul class="pagination">
 
-                </ul>
-                <a href="javascript:void(0)" id="next">&raquo;</a>
+        <!-- filter menu -->
+
+        <div class="menu">
+            
+            <div class="search">
+                <div><label for="name">Name / code</label></div>
+                <div>
+                    <input type="search" name="name" placeholder="cust code/name" class="custo"/>
+                    <a href=""><i class="fa fa-search" aria-hidden="true"></i></a>
+                </div>                
             </div>
-            <div id="export">
-                <label for="format">Export to</label><br>
-                <button id="csv">csv</button>
-            </div>
-            <div id="resul">
-                <button id="btnresul" onclick= "document.getElementById('tsum').style.display='block'">Rst</button>
+            <div class="expopage">
+                <div id="page">
+                    <a href="javascript:void(0)" id="previous">&laquo;</a>
+                    <ul class="pagination">
+                    </ul>
+                    <a href="javascript:void(0)" id="next">&raquo;</a>
+                </div>
+                <div id="export">
+                    <label for="format">Export to </label>
+                    <button id="csv">csv</button>
+                </div>
             </div>
             
         </div>
-    
-        <div class="tsum" id="tsum">
-            <div>
-                <h3>General information</h3>
-                <table id="table2">
-                    <thead>
-                        <th>Currency</th>
-                        <th>Exchange rate</th>
-                        <th>Sum</th>
-                        <th>Average</th>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>USD</td>
-                            <td>1</td>
-                            <td>1 500</td>
-                            <td>10</td>
-                        </tr>
-                        <tr>
-                            <td>CDF</td>
-                            <td>2000</td>
-                            <td>3 000 000</td>
-                            <td>20 000</td>
-                        </tr>
-                    </tbody>
-                </table>
-            
-            </div>
-            <button id="leave" onclick= "document.getElementById('tsum').style.display='none'">leave</button>
 
-        </div>
+        <!-- second table -->
+
+        <table class="table01">
+            <thead>
+                <th>Curst</th>
+                <th>Date</th>
+                <th>PayMode</th>
+                <th>AmountPay</th>
+                <th>Site</th>
+                <th>Status</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td id="detail">Pacal<br><span>2346 </span></td>
+                    <td data-label="Date" class="detail">12/03/2021</td>
+                    <td data-label="PayMode" class="detail"> OranMony</td>
+                    <td data-label="AmountPay" class="detail">500</td>
+                    <td data-label="Sire" class="detail">Goma</td>
+                    <td data-label="Status" class="detail">Reussi</td>
+                </tr>
+                <tr>
+                    <td id="detail">Olivier<br><span>8746</span> </td>
+                    <td data-label="Date" class="detail">12/03/2021</td>
+                    <td data-label="PayMode" class="detail"> OranMony</td>
+                    <td data-label="AmountPay" class="detail">500</td>
+                    <td data-label="Sire" class="detail">Goma</td>
+                    <td data-label="Status" class="detail">Reussi</td>
+                </tr>
+                <tr>
+                    <td id="detail">Bienfait<br><span>5798</span> </td>
+                    <td data-label="Date" class="detail">12/03/2021</td>
+                    <td data-label="PayMode" class="detail"> OranMony</td>
+                    <td data-label="AmountPay" class="detail">500</td>
+                    <td data-label="Sire" class="detail">Goma</td>
+                    <td data-label="Status" class="detail">Reussi</td>
+                </tr>
+                <tr>
+                    <td id="detail">Melki<br><span>5798</span> </td>
+                    <td data-label="Date" class="detail">12/03/2021</td>
+                    <td data-label="PayMode" class="detail"> OranMony</td>
+                    <td data-label="AmountPay" class="detail">500</td>
+                    <td data-label="Sire" class="detail">Goma</td>
+                    <td data-label="Status" class="detail">Reussi</td>
+                </tr>
+                <tr>
+                    <td id="detail">Innocent<br><span>78e9</span> </td>
+                    <td data-label="Date" class="detail">12/03/2021</td>
+                    <td data-label="PayMode" class="detail"> OranMony</td>
+                    <td data-label="AmountPay" class="detail">500</td>
+                    <td data-label="Sire" class="detail">Goma</td>
+                    <td data-label="Status" class="detail">Reussi</td>
+                </tr>
+                <tr>
+                    <td id="detail">Jonas<br><span>4682</span> </td>
+                    <td data-label="Date" class="detail">12/03/2021</td>
+                    <td data-label="PayMode" class="detail"> OranMony</td>
+                    <td data-label="AmountPay" class="detail">500</td>
+                    <td data-label="Sire" class="detail">Goma</td>
+                    <td data-label="Status" class="detail">Reussi</td>
+                </tr>
+                <tr>
+                    <td id="detail">Ushindi<br><span>1456</span> </td>
+                    <td data-label="Date" class="detail">12/03/2021</td>
+                    <td data-label="PayMode" class="detail"> OranMony</td>
+                    <td data-label="AmountPay" class="detail">500</td>
+                    <td data-label="Sire" class="detail">Goma</td>
+                    <td data-label="Status" class="detail">Reussi</td>
+                </tr>
+                <tr>
+                    <td id="detail">Victoire<br><span>0987</span> </td>
+                    <td data-label="Date" class="detail">12/03/2021</td>
+                    <td data-label="PayMode" class="detail"> OranMony</td>
+                    <td data-label="AmountPay" class="detail">500</td>
+                    <td data-label="Sire" class="detail">Goma</td>
+                    <td data-label="Status" class="detail">Reussi</td>
+                </tr>
+                <tr>
+                    <td id="detail">Ushindi<br><span>1456</span> </td>
+                    <td data-label="Date" class="detail">12/03/2021</td>
+                    <td data-label="PayMode" class="detail"> OranMony</td>
+                    <td data-label="AmountPay" class="detail">500</td>
+                    <td data-label="Sire" class="detail">Goma</td>
+                    <td data-label="Status" class="detail">Reussi</td>
+                </tr>
+                <tr>
+                    <td id="detail">Victoire<br><span>1456</span> </td>
+                    <td data-label="Date" class="detail">12/03/2021</td>
+                    <td data-label="PayMode" class="detail"> OranMony</td>
+                    <td data-label="AmountPay" class="detail">500</td>
+                    <td data-label="Sire" class="detail">Goma</td>
+                    <td data-label="Status" class="detail">Reussi</td>
+                </tr>
+                <tr>
+                    <td id="detail">Ushindi<br><span>1456</span> </td>
+                    <td data-label="Date">12/03/2021</td>
+                    <td data-label="PayMode"> OranMony</td>
+                    <td data-label="AmountPay">500</td>
+                    <td data-label="Sire">Goma</td>
+                    <td data-label="Status">Reussi</td>
+                </tr>
+                <tr>
+                    <td id="detail">Victoire<br><span>0987</span> </td>
+                    <td data-label="Date">12/03/2021</td>
+                    <td data-label="PayMode"> OranMony</td>
+                    <td data-label="AmountPay">500</td>
+                    <td data-label="Sire">Goma</td>
+                    <td data-label="Status">Reussi</td>
+                </tr>
+                <tr>
+                    <td id="detail">Ushindi<br><span>1456</span> </td>
+                    <td data-label="Date">12/03/2021</td>
+                    <td data-label="PayMode"> OranMony</td>
+                    <td data-label="AmountPay">500</td>
+                    <td data-label="Sire">Goma</td>
+                    <td data-label="Status">Reussi</td>
+                </tr>
+                <tr>
+                    <td id="detail">Victoire<br><span>1456</span> </td>
+                    <td data-label="Date">12/03/2021</td>
+                    <td data-label="PayMode"> OranMony</td>
+                    <td data-label="AmountPay">500</td>
+                    <td data-label="Sire">Goma</td>
+                    <td data-label="Status">Reussi</td>
+                </tr>
+            </tbody>
+        </table>
+
+        
     </div>
+
+</div>
 <script src="./js/jquery-3.6.0.js"></script>
 <script src="./js/table2csv.min.js"></script>
 <script src="./js/main.js"></script>
