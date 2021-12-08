@@ -128,39 +128,7 @@ button
       padding: 90px 30px 60px 0px;
   }
 
-  /* @media(min-width:700px)
-  {
-     
-      .indexBody
-      {
-        display: flex;
-        
-      }
-
-      .shortMessage
-      {
-          width: 60%;
-          margin: 10px;
-          
-      }
-
-      #id01 {
-        display: block;
-        position: relative;
-        width: 30%;
-        margin: 10px;
-        padding: auto;
-
-      }
-
-      #id01 .container
-      {
-          vertical-align: middle;
-      }
-  } */
-
-  /*Dashboard header*/
-
+ 
 .dashBoardHead
 {  
     position: sticky;
@@ -325,7 +293,6 @@ td span
     background-color:#ffffff;
     color: black;
 }
-
 
 
 

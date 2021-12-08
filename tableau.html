@@ -11,6 +11,7 @@
 
     <link rel="stylesheet" href="./css/bootstrap-icons/bootstrap-icons.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="./daterangepicker/dist/daterangepicker.min.css">
 </head>
 
 <body>
@@ -24,10 +25,10 @@
         <div class="tags filters">
 
             <h2>Filters</h2>
-
+    
             <!-- customer identity(either by code or by name)-->
-
-            <div class="tags-box" id="tags-box">
+    
+            <div class="tags-box">
                 <h3>Customer Identities</h3>
                 <div id="filter_Custcode">
                     <label for="">By custamer Code</label>
@@ -41,85 +42,82 @@
             </div>
             
             <!-- End customer identity-->
-
+    
             <!-- select site -->
             <div class="tags-box" id="filter-site">
-
+    
                 <h3>Selecting site(s)</h3>
-
+    
                 <input type="checkbox" id="all">
                 <label for="">All</label><br>
-                <input type="checkbox" id="custcode">
-                <label for="">Goma</label><br>
-                <input type="checkbox" id="custname">
-                <label for="">Beni</label><br>
-                <input type="checkbox" id="Paiement Mode">
-                <label for="">Butembo</label><br>
-                <input type="checkbox" id="Acoout">
-                <label for="">Bunia</label><br>
-
+                <span id="sites">
+                    <input type="checkbox" id="Goma">
+                    <label for="">Goma</label><br>
+                    <input type="checkbox" id="Beni">
+                    <label for="">Beni</label><br>
+                    <input type="checkbox" id="Butembo">
+                    <label for="">Butembo</label><br>
+                    <input type="checkbox" id="Bunia">
+                    <label for="">Bunia</label><br>
+                </span>
+    
             </div>
-
+    
              <!-- select payment mode-->
              <div class="tags-box" id="filter-payment-mode">
                 <h3>Select Payment mode</h3>
-                <input type="checkbox" id="Payment Mode">
+                <input type="checkbox" id="AllPaymentModes">
                 <label for="">All</label><br>
-                <input type="checkbox" id="Payment Mode">
-                <label for="">Airtel Money</label><br>
-                <input type="checkbox" id="Acoout">
-                <label for="">Orange Money</label><br>
-                <input type="checkbox" id="Acoout">
-                <label for="">M-pesa</label><br>
-
+                <span id="payment-mode">
+                    <input type="checkbox" id="AirtelMoney">
+                    <label for="">Airtel Money</label><br>
+                    <input type="checkbox" id="OrangeMoney">
+                    <label for="">Orange Money</label><br>
+                    <input type="checkbox" id="M-pesa">
+                    <label for="">M-pesa</label><br>
+                </span>
+    
             </div>
-
+    
              <!-- Periode of time-->
              <div class="tags-box" id="filter-date">
-
+    
                 <h3>Select a period</h3>
-                <label for="biginningdate">Start</label>
-                <input type="date" id="biginningdate"><br>
-                <label for="enddate">End</label>
-                <input type="date" id="enddate">
+                <button><span id="selectPeriod">Select period</span></button>
             </div>
             
             <!-- select stutus-->
             <div class="tags-box" id="filter-payment-status">
                 <h3>Select payments status</h3>
-
+    
                 <input type="checkbox" id="Payment Mode">
                 <label for="">All</label><br>
-                <input type="checkbox" id="Payment Mode">
-                <label for="">Success</label><br>
-                <input type="checkbox" id="Acoout">
-                <label for="">Pending</label><br>
-                <input type="checkbox" id="Acoout">
-                <label for="">Failed</label><br>
-
+                <span id="status">
+                    <input type="checkbox" id="successful">
+                    <label for="">Success</label><br>
+                    <input type="checkbox" id="pending">
+                    <label for="">Pending</label><br>
+                    <input type="checkbox" id="failed">
+                    <label for="">Failed</label><br>
+                </span>
+    
             </div>
            
             <div class="tags-box" id="filter-selectedColumns">
                     <h3>Choosing columns to display</h3>
-
-                    <input type="checkbox" id="custcode">
-                    <label for="">All</label><br>
-                    <input type="checkbox" id="custcode">
-                    <label for="">Cusomer code</label><br>
-                    <input type="checkbox" id="custname">
-                    <label for="">customer name</label><br>
-                    <input type="checkbox" id="Paiement Mode">
-                    <label for="">Payment mode</label><br>
-                    <input type="checkbox" id="Acoout">
-                    <label for="">Amount paid</label><br>
-                    <input type="checkbox" id="custcode">
-                    <label for="">Currency</label><br>
+    
+                    <input type="checkbox" id="allColumns">
+                    <label for="allColumns">All</label><br>
+                    <span id="selectedCols">
+                      
+                    </span>
+                    
             </div>
-
+    
             <div class="tags-box" id="numberOfLines">
-
+    
                 <label for="">Number of lines to display</label>
-                <input type="number" id="nbRows" value="20" min="1" max="40">
+                <input type="number" id="nbRows" value="20" min="1">
             </div>
             <div>
                 <button type="submit" id="applyFilters">Apply</button>
@@ -153,19 +151,8 @@
     <div class="wrapper">
         <div class="data">
             <div class="tabledata">
-                <table id="table1">
-                    <thead>
-                        <th  data-label="Customer code" class="identity01">Customer code</th>
-                        <th  data-lable="Customer name" class="identity02">Customer name</th>  
-                        <th>Date/Time</th>
-                        <th>Payment Mode</th>
-                        <th>Amount payed</th>
-                        <th>Currency</th>
-                        <th>Exchange rate</th>
-                    </thead>
-                    <tbody>
+                <table id="table">
                 
-                    </tbody>
                 </table>
             </div>
         </div>
@@ -419,6 +406,8 @@
 
 </div>
 <script src="./js/jquery-3.6.0.js"></script>
+<script type="text/javascript" src="./daterangepicker/moment.js"></script>
+<script type="text/javascript" src="./daterangepicker/dist/jquery.daterangepicker.min.js"></script>
 <script src="./js/table2csv.min.js"></script>
 <script src="./js/main.js"></script>
 </body>

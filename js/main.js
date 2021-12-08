@@ -60,85 +60,298 @@ $(function(){
        $('.modal-content').show(); 
     })
 
-    // table pagination
-    var numberOfRows = $('#table1 tbody tr').length;
-    var limitPage = $('#nbRows').val();
-    $('#table1 tbody tr:gt('+(limitPage-1)+')').hide();
-    
-    var totalPages = Math.round(numberOfRows/limitPage);
-    $('.pagination').append('<li class="numPage active"><a  href="javascript:void(0)">'+ 1 +'</a></li>');
-    for(var i = 2 ; i<= totalPages;i++)
-    {
-        $('.pagination').append('<li class="numPage"><a href="javascript:void(0)">'+ i +'</a></li>');
-    }
+    //Applying filters
+    //global variables
 
-    $('.numPage').click(function(){
-        if($(this).hasClass('active')){
-            return false;
-        }else
-        {
-            $('.pagination li').removeClass('active');
-            $(this).addClass('active');
-            $('#table1 tbody tr').hide();
-        }
+    var sites =$('#filter-site #sites input[type="checkbox"]');
+    var selectedColumns=[];
+    var chekboxes=[];
+    var columns = [];
+    var paymentModes= $('#payment-mode input[type="checkbox"]');
+    var paymentStatuses  = $('#filter-payment-status #status input[type="checkbox"]');
+
+
+    //loading data from csv file
+
+        $.ajax({
+            url:'../table.csv',
+            dataType:'text',
+            success:function(data){
+               var fromCsv =  data.split(/\r?\n|\r/);
+               var tableData = '<table class="table">';
+
+               for(var i=0;i<fromCsv.length;i++)
+               {
+                    var rowData = fromCsv[i].split(',');
+
+                    if(i===0)
+                    {
+                        tableData += '<thead><tr>';
+                        for(var j=0; j<rowData.length;j++)
+                        {
+                            tableData += '<th>'+ rowData[j]+'</th>';
+                            columns.push(rowData[j]);
+                        }
+                        tableData += '</tr></thead><tbody>';
+                    }else{
+                        tableData += '<tr>';
+                        for(var j=0; j<rowData.length;j++)
+                        {
+                            tableData += '<td>'+rowData[j]+'</td>';
+                        }
+                        tableData += '</tr>';
+                    }
+
+                   
+               }
+               tableData += '</tbody></table>';
+               $('#table').html(tableData);
+
+
+            //display columns checkboxes
+               for(let i = 0; i<columns.length;i++)
+               {
+                   document.getElementById('selectedCols').innerHTML+='<input type="checkbox" id="'+columns[i]+'"><label for="'+columns[i]+'">'+columns[i]+'</label><br>'
+               }
+               selectedColumns= $('#selectedCols input');
+
+
+
+            //All checkboxes are checked by default
+            chekboxes = $('input[type="checkbox"]');
+            for(let k=0;k<chekboxes.length;k++){
+                chekboxes[k].checked=true;
+            }
+
+            paginer((fromCsv.length-1),$('#nbRows').val());
+            }
+            
+        })
+         
         
-        var currentPage = $(this).index()+1;
-        var cumule = limitPage*currentPage;
-
-        for(var j=cumule-limitPage;j<cumule;j++)
+    //date range picker
+    $('#selectPeriod').dateRangePicker({
+        getValue: function()
         {
-            $('#table1 tbody tr:eq('+j+')').show();
+            return this.innerHTML;
+        },
+        setValue: function(s)
+        {
+            this.innerHTML = s;
         }
     });
-  
-    $('#next').click(function(){
-        let currentPage = $('.pagination li.active').index()+1;
 
-        if(currentPage===totalPages)
-        {
-            return false;
+        //select-All button feature
+    $('#allColumns').click(function(){
+        if($(this).is(':checked')){
+           for(let i=0; i<selectedColumns.length; i++){
+               selectedColumns[i].checked=true;
+           }
+        }else{
+            for(let i=0; i<selectedColumns.length; i++){
+                selectedColumns[i].checked=false;
+            }  
         }
-        else{
-            currentPage++;
-            $('.pagination li.active').removeClass('active');
-            $('#table1 tbody tr').hide();
+    })   
 
-            var cumule = limitPage*currentPage;
-            for(var j=cumule-limitPage;j<cumule;j++)
-             {
-                $('#table1 tbody tr:eq('+j+')').show();
+
+
+    //apply filters values
+
+    $('#applyFilters').click(function(){
+        console.log();
+        //indexes array of selected columns
+        let selectedColumnsIndexes=[];
+        for(let i=0; i<selectedColumns.length; i++){
+            if(selectedColumns[i].checked){
+                selectedColumnsIndexes.push(i);
             }
-            $('.pagination li:eq('+(currentPage-1)+')').addClass('active');
         }
+
+        //array of selected payment modes
+        selectedPaymentModes = [];
+        for(let i=0;i<paymentModes.length;i++)
+        {
+            if(paymentModes[i].checked){
+                selectedPaymentModes.push(paymentModes[i].id.toLowerCase());
+            }
+        }
+
+        //array of selected sites
+        selectedSites = [];
+        for(let i=0;i<sites.length;i++)
+        {
+            if(sites[i].checked){
+                selectedSites.push(sites[i].id);
+            }
+        }
+
+        //array of selected payments status
+        selectedStatus = [];
+        for(let i=0;i<paymentStatuses.length;i++)
+        {
+            if(paymentStatuses[i].checked){
+                selectedStatus.push(paymentStatuses[i].id);
+            }
+        }
+
+
+        $.ajax({
+            url:'../table.csv',
+            dataType:'text',
+            success:function(data){
+               var fromCsv =  data.split(/\r?\n|\r/);
+               var tableData = '<table class="table">';
+
+               for(var i=0;i<fromCsv.length;i++)
+               {
+
+                    var rowData = fromCsv[i].split(',');
+
+                    //display chosen columns
+                    if(i===0)
+                    {
+                        tableData += '<thead><tr>';
+                        for(var j=0; j<rowData.length;j++)
+                        {
+                            if(selectedColumnsIndexes.includes(j))
+                            {
+                                tableData += '<th>'+ rowData[j]+'</th>';
+                            }
+                        }
+                        tableData += '</tr></thead><tbody>';
+                    }
+                    
+            
+                //function for selecting paymentModes, cols already selected
+                      function selectPaymentModes(){
+                        selectedPaymentModes.forEach(element => {
+                            if(i===0 || rowData.includes(element))
+                            {
+                                tableData += '<tr>';
+                                for(var j=0; j<rowData.length;j++)
+                                {
+                                    if(selectedColumnsIndexes.includes(j))
+                                    {
+                                        tableData += '<td>'+rowData[j]+'</td>';  
+                                    }
+                                }
+                                tableData += '</tr>';
+                            }
+                        });
+                       }
+                //function for selecting sites
+                       function selectSites(){
+                        selectedSites.forEach(element => {
+                            if(rowData.includes(element))
+                            {
+                                selectPaymentModes();  
+                            }
+                        });
+                       }
+
+                //filter by payment status
+
+                    selectedStatus.forEach(element => {
+                        if(rowData.includes(element))
+                        {
+                            selectSites();
+                        }
+                    });
+                   
+                    
+               }
+              
+               tableData += '</tbody></table>';
+               $('#table').html(tableData);
+
+               paginer((fromCsv.length-1),$('#nbRows').val());
+
+            }
+            
+        })
+
     })
 
-    $('#previous').click(function(){
-        let currentPage = $('.pagination li.active').index()+1;
-
-        if(currentPage===1)
+    // table pagination
+    function paginer(numberOfRows,limitPage){
+        $('.pagination').html('');
+        $('#table tbody tr:gt('+(limitPage-1)+')').hide();
+        
+        var totalPages = Math.round(numberOfRows/limitPage);
+        $('.pagination').append('<li class="numPage active"><a  href="javascript:void(0)">'+ 1 +'</a></li>');
+        for(var i = 2 ; i<= totalPages;i++)
         {
-            return false;
+            $('.pagination').append('<li class="numPage"><a href="javascript:void(0)">'+ i +'</a></li>');
         }
-        else{
-            currentPage--;
-            $('.pagination li.active').removeClass('active');
-            $('#table1 tbody tr').hide();
-
-            var cumule = limitPage*currentPage;
-            for(var j=cumule-limitPage;j<cumule;j++)
-             {
-                $('#table1 tbody tr:eq('+j+')').show();
-            }
-            $('.pagination li:eq('+(currentPage-1)+')').addClass('active');
-        }
-    })
     
+        $('.numPage').click(function(){
+            if($(this).hasClass('active')){
+                return false;
+            }else
+            {
+                $('.pagination li').removeClass('active');
+                $(this).addClass('active');
+                $('#table tbody tr').hide();
+            }
+            
+            var currentPage = $(this).index()+1;
+            var cumule = limitPage*currentPage;
+    
+            for(var j=cumule-limitPage;j<cumule;j++)
+            {
+                $('#table tbody tr:eq('+j+')').show();
+            }
+        });
+      
+        $('#next').click(function(){
+            let currentPage = $('.pagination li.active').index()+1;
+    
+            if(currentPage===totalPages)
+            {
+                return false;
+            }
+            else{
+                currentPage++;
+                $('.pagination li.active').removeClass('active');
+                $('#table tbody tr').hide();
+    
+                var cumule = limitPage*currentPage;
+                for(var j=cumule-limitPage;j<cumule;j++)
+                 {
+                    $('#table tbody tr:eq('+j+')').show();
+                }
+                $('.pagination li:eq('+(currentPage-1)+')').addClass('active');
+            }
+        })
+    
+        $('#previous').click(function(){
+            let currentPage = $('.pagination li.active').index()+1;
+            if(currentPage===1)
+            {
+                return false;
+            }
+            else{
+                currentPage--;
+                $('.pagination li.active').removeClass('active');
+                $('#table tbody tr').hide();
+    
+                var cumule = limitPage*currentPage;
+                for(var j=cumule-limitPage;j<cumule;j++)
+                 {
+                    $('#table tbody tr:eq('+j+')').show();
+                }
+                $('.pagination li:eq('+(currentPage-1)+')').addClass('active');
+            }
+        })
+        
+    }
     //end padination
 
     //download csv file 
 
     $('#csv').click(function(){
-        $('#table1').table2csv({"quoteFields":false});
+        $('#table').table2csv({"quoteFields":false});
     })
 })
 
