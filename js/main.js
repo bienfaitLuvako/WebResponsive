@@ -60,83 +60,6 @@ $(function(){
        $('.modal-content').show(); 
     })
 
-    // table pagination
-    var numberOfRows = $('#table1 tbody tr').length;
-    var limitPage = $('#nbRows').val();
-    $('#table1 tbody tr:gt('+(limitPage-1)+')').hide();
-    
-    var totalPages = Math.round(numberOfRows/limitPage);
-    $('.pagination').append('<li class="numPage active"><a  href="javascript:void(0)">'+ 1 +'</a></li>');
-    for(var i = 2 ; i<= totalPages;i++)
-    {
-        $('.pagination').append('<li class="numPage"><a href="javascript:void(0)">'+ i +'</a></li>');
-    }
-
-    $('.numPage').click(function(){
-        if($(this).hasClass('active')){
-            return false;
-        }else
-        {
-            $('.pagination li').removeClass('active');
-            $(this).addClass('active');
-            $('#table1 tbody tr').hide();
-        }
-        
-        var currentPage = $(this).index()+1;
-        var cumule = limitPage*currentPage;
-
-        for(var j=cumule-limitPage;j<cumule;j++)
-        {
-            $('#table1 tbody tr:eq('+j+')').show();
-        }
-    });
-  
-    $('#next').click(function(){
-        let currentPage = $('.pagination li.active').index()+1;
-
-        if(currentPage===totalPages)
-        {
-            return false;
-        }
-        else{
-            currentPage++;
-            $('.pagination li.active').removeClass('active');
-            $('#table1 tbody tr').hide();
-
-            var cumule = limitPage*currentPage;
-            for(var j=cumule-limitPage;j<cumule;j++)
-             {
-                $('#table1 tbody tr:eq('+j+')').show();
-            }
-            $('.pagination li:eq('+(currentPage-1)+')').addClass('active');
-        }
-    })
-
-    $('#previous').click(function(){
-        let currentPage = $('.pagination li.active').index()+1;
-
-        if(currentPage===1)
-        {
-            return false;
-        }
-        else{
-            currentPage--;
-            $('.pagination li.active').removeClass('active');
-            $('#table1 tbody tr').hide();
-
-            var cumule = limitPage*currentPage;
-            for(var j=cumule-limitPage;j<cumule;j++)
-             {
-                $('#table1 tbody tr:eq('+j+')').show();
-            }
-            $('.pagination li:eq('+(currentPage-1)+')').addClass('active');
-        }
-    })
-    
-    //end padination
-
-
-
     //Applying filters
     //global variables
 
@@ -160,19 +83,28 @@ $(function(){
                for(var i=0;i<fromCsv.length;i++)
                {
                     var rowData = fromCsv[i].split(',');
-                    tableData += '<tr>';
-                    for(var j=0; j<rowData.length;j++)
+
+                    if(i===0)
                     {
-                        if(i===0){
+                        tableData += '<thead><tr>';
+                        for(var j=0; j<rowData.length;j++)
+                        {
                             tableData += '<th>'+ rowData[j]+'</th>';
-                           columns.push(rowData[j]); 
-                        }else{
+                            columns.push(rowData[j]);
+                        }
+                        tableData += '</tr></thead><tbody>';
+                    }else{
+                        tableData += '<tr>';
+                        for(var j=0; j<rowData.length;j++)
+                        {
                             tableData += '<td>'+rowData[j]+'</td>';
                         }
+                        tableData += '</tr>';
                     }
-                    tableData += '</tr>';
+
+                   
                }
-               tableData += '</table>';
+               tableData += '</tbody></table>';
                $('#table').html(tableData);
 
 
@@ -190,6 +122,8 @@ $(function(){
             for(let k=0;k<chekboxes.length;k++){
                 chekboxes[k].checked=true;
             }
+
+            paginer((fromCsv.length-1),$('#nbRows').val());
             }
             
         })
@@ -271,18 +205,13 @@ $(function(){
 
                for(var i=0;i<fromCsv.length;i++)
                {
-                   //select columns function
-                   function selectCols(){
-                   
-                   }
-
 
                     var rowData = fromCsv[i].split(',');
 
                     //display chosen columns
                     if(i===0)
                     {
-                        tableData += '<tr>';
+                        tableData += '<thead><tr>';
                         for(var j=0; j<rowData.length;j++)
                         {
                             if(selectedColumnsIndexes.includes(j))
@@ -290,9 +219,8 @@ $(function(){
                                 tableData += '<th>'+ rowData[j]+'</th>';
                             }
                         }
-                        tableData += '</tr>';
+                        tableData += '</tr></thead><tbody>';
                     }
-
                     
             
                 //function for selecting paymentModes, cols already selected
@@ -334,14 +262,91 @@ $(function(){
                     
                }
               
-               tableData += '</table>';
+               tableData += '</tbody></table>';
                $('#table').html(tableData);
+
+               paginer((fromCsv.length-1),$('#nbRows').val());
 
             }
             
         })
 
     })
+
+    // table pagination
+    function paginer(numberOfRows,limitPage){
+        $('.pagination').html('');
+        $('#table tbody tr:gt('+(limitPage-1)+')').hide();
+        
+        var totalPages = Math.round(numberOfRows/limitPage);
+        $('.pagination').append('<li class="numPage active"><a  href="javascript:void(0)">'+ 1 +'</a></li>');
+        for(var i = 2 ; i<= totalPages;i++)
+        {
+            $('.pagination').append('<li class="numPage"><a href="javascript:void(0)">'+ i +'</a></li>');
+        }
+    
+        $('.numPage').click(function(){
+            if($(this).hasClass('active')){
+                return false;
+            }else
+            {
+                $('.pagination li').removeClass('active');
+                $(this).addClass('active');
+                $('#table tbody tr').hide();
+            }
+            
+            var currentPage = $(this).index()+1;
+            var cumule = limitPage*currentPage;
+    
+            for(var j=cumule-limitPage;j<cumule;j++)
+            {
+                $('#table tbody tr:eq('+j+')').show();
+            }
+        });
+      
+        $('#next').click(function(){
+            let currentPage = $('.pagination li.active').index()+1;
+    
+            if(currentPage===totalPages)
+            {
+                return false;
+            }
+            else{
+                currentPage++;
+                $('.pagination li.active').removeClass('active');
+                $('#table tbody tr').hide();
+    
+                var cumule = limitPage*currentPage;
+                for(var j=cumule-limitPage;j<cumule;j++)
+                 {
+                    $('#table tbody tr:eq('+j+')').show();
+                }
+                $('.pagination li:eq('+(currentPage-1)+')').addClass('active');
+            }
+        })
+    
+        $('#previous').click(function(){
+            let currentPage = $('.pagination li.active').index()+1;
+            if(currentPage===1)
+            {
+                return false;
+            }
+            else{
+                currentPage--;
+                $('.pagination li.active').removeClass('active');
+                $('#table tbody tr').hide();
+    
+                var cumule = limitPage*currentPage;
+                for(var j=cumule-limitPage;j<cumule;j++)
+                 {
+                    $('#table tbody tr:eq('+j+')').show();
+                }
+                $('.pagination li:eq('+(currentPage-1)+')').addClass('active');
+            }
+        })
+        
+    }
+    //end padination
 
     //download csv file 
 
