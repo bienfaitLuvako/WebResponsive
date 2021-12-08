@@ -135,10 +135,218 @@ $(function(){
     
     //end padination
 
+
+
+    //Applying filters
+    //global variables
+
+    var sites =$('#filter-site #sites input[type="checkbox"]');
+    var selectedColumns=[];
+    var chekboxes=[];
+    var columns = [];
+    var paymentModes= $('#payment-mode input[type="checkbox"]');
+    var paymentStatuses  = $('#filter-payment-status #status input[type="checkbox"]');
+
+
+    //loading data from csv file
+
+        $.ajax({
+            url:'../table.csv',
+            dataType:'text',
+            success:function(data){
+               var fromCsv =  data.split(/\r?\n|\r/);
+               var tableData = '<table class="table">';
+
+               for(var i=0;i<fromCsv.length;i++)
+               {
+                    var rowData = fromCsv[i].split(',');
+                    tableData += '<tr>';
+                    for(var j=0; j<rowData.length;j++)
+                    {
+                        if(i===0){
+                            tableData += '<th>'+ rowData[j]+'</th>';
+                           columns.push(rowData[j]); 
+                        }else{
+                            tableData += '<td>'+rowData[j]+'</td>';
+                        }
+                    }
+                    tableData += '</tr>';
+               }
+               tableData += '</table>';
+               $('#table').html(tableData);
+
+
+            //display columns checkboxes
+               for(let i = 0; i<columns.length;i++)
+               {
+                   document.getElementById('selectedCols').innerHTML+='<input type="checkbox" id="'+columns[i]+'"><label for="'+columns[i]+'">'+columns[i]+'</label><br>'
+               }
+               selectedColumns= $('#selectedCols input');
+
+
+
+            //All checkboxes are checked by default
+            chekboxes = $('input[type="checkbox"]');
+            for(let k=0;k<chekboxes.length;k++){
+                chekboxes[k].checked=true;
+            }
+            }
+            
+        })
+         
+        
+    //date range picker
+    $('#selectPeriod').dateRangePicker({
+        getValue: function()
+        {
+            return this.innerHTML;
+        },
+        setValue: function(s)
+        {
+            this.innerHTML = s;
+        }
+    });
+
+        //select-All button feature
+    $('#allColumns').click(function(){
+        if($(this).is(':checked')){
+           for(let i=0; i<selectedColumns.length; i++){
+               selectedColumns[i].checked=true;
+           }
+        }else{
+            for(let i=0; i<selectedColumns.length; i++){
+                selectedColumns[i].checked=false;
+            }  
+        }
+    })   
+
+
+
+    //apply filters values
+
+    $('#applyFilters').click(function(){
+        console.log();
+        //indexes array of selected columns
+        let selectedColumnsIndexes=[];
+        for(let i=0; i<selectedColumns.length; i++){
+            if(selectedColumns[i].checked){
+                selectedColumnsIndexes.push(i);
+            }
+        }
+
+        //array of selected payment modes
+        selectedPaymentModes = [];
+        for(let i=0;i<paymentModes.length;i++)
+        {
+            if(paymentModes[i].checked){
+                selectedPaymentModes.push(paymentModes[i].id.toLowerCase());
+            }
+        }
+
+        //array of selected sites
+        selectedSites = [];
+        for(let i=0;i<sites.length;i++)
+        {
+            if(sites[i].checked){
+                selectedSites.push(sites[i].id);
+            }
+        }
+
+        //array of selected payments status
+        selectedStatus = [];
+        for(let i=0;i<paymentStatuses.length;i++)
+        {
+            if(paymentStatuses[i].checked){
+                selectedStatus.push(paymentStatuses[i].id);
+            }
+        }
+
+
+        $.ajax({
+            url:'../table.csv',
+            dataType:'text',
+            success:function(data){
+               var fromCsv =  data.split(/\r?\n|\r/);
+               var tableData = '<table class="table">';
+
+               for(var i=0;i<fromCsv.length;i++)
+               {
+                   //select columns function
+                   function selectCols(){
+                   
+                   }
+
+
+                    var rowData = fromCsv[i].split(',');
+
+                    //display chosen columns
+                    if(i===0)
+                    {
+                        tableData += '<tr>';
+                        for(var j=0; j<rowData.length;j++)
+                        {
+                            if(selectedColumnsIndexes.includes(j))
+                            {
+                                tableData += '<th>'+ rowData[j]+'</th>';
+                            }
+                        }
+                        tableData += '</tr>';
+                    }
+
+                    
+            
+                //function for selecting paymentModes, cols already selected
+                      function selectPaymentModes(){
+                        selectedPaymentModes.forEach(element => {
+                            if(i===0 || rowData.includes(element))
+                            {
+                                tableData += '<tr>';
+                                for(var j=0; j<rowData.length;j++)
+                                {
+                                    if(selectedColumnsIndexes.includes(j))
+                                    {
+                                        tableData += '<td>'+rowData[j]+'</td>';  
+                                    }
+                                }
+                                tableData += '</tr>';
+                            }
+                        });
+                       }
+                //function for selecting sites
+                       function selectSites(){
+                        selectedSites.forEach(element => {
+                            if(rowData.includes(element))
+                            {
+                                selectPaymentModes();  
+                            }
+                        });
+                       }
+
+                //filter by payment status
+
+                    selectedStatus.forEach(element => {
+                        if(rowData.includes(element))
+                        {
+                            selectSites();
+                        }
+                    });
+                   
+                    
+               }
+              
+               tableData += '</table>';
+               $('#table').html(tableData);
+
+            }
+            
+        })
+
+    })
+
     //download csv file 
 
     $('#csv').click(function(){
-        $('#table1').table2csv({"quoteFields":false});
+        $('#table').table2csv({"quoteFields":false});
     })
 })
 
